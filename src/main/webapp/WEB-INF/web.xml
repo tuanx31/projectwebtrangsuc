@@ -29,4 +29,6 @@
     <servlet-name>productController</servlet-name>
     <url-pattern>/productController</url-pattern>
   </servlet-mapping>
+  
 </web-app>
+
