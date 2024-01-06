@@ -21,8 +21,15 @@
                                 class="fa-solid fa-phone text-danger"></i>01234456</a>
                     </div>
                     <div class="hd-top-r">
-                        <a href="#" class="text-dark text-decoration-none">
-                            <i class="fa-regular fa-user text-danger"></i>Tài khoản</a>
+                        <div style="display: inline-block; " class="acount">
+                            <a href="#" class="text-dark text-decoration-none ">
+                                <i class="fa-regular fa-user text-danger"></i>Tài khoản</a>
+                            <ul class="menu-account">
+                                <li><a href="">Đăng nhập</a></li>
+                                <li><a href="">Đăng ký</a></li>
+                            </ul>
+                        </div>
+
                         <a href="cart.jsp" class="text-dark text-decoration-none">
                             <i class="fa-solid fa-cart-shopping text-danger"></i> Giỏ
                             hàng</a>
