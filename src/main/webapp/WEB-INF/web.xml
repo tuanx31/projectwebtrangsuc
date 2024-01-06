@@ -29,6 +29,9 @@
     <servlet-name>productController</servlet-name>
     <url-pattern>/productController</url-pattern>
   </servlet-mapping>
-  
+  <dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
 </web-app>
 

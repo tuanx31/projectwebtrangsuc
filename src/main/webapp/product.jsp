@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
     <!DOCTYPE html>
     <html>
 
@@ -13,13 +12,12 @@
     <body>
         <%@include file="component/header.jsp" %>
             <div class="banner">
-                <img class="w-100" src="asesst/drop-of-light-banner.jpg" />
+                <img class="w-100" src="${category.banner }" />
             </div>
             <div class="container">
-
+				
                 <div class="row">
-                    <h4 class="text-uppercase w-100 border-bottom py-2">BST TRANG SỨC KIM CƯƠNG DROP OF LIGHT
-                    </h4>
+                    <h4 class="text-uppercase w-100 border-bottom py-2">${category.name}</h4>
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6">
                         <div class="card cusor my-3 shadow rounded-3" style="cursor: pointer;">
                             <img src="asesst/afeb902078f2hm1_2.jpg" class="card-img-top rounded-3" alt="...">
@@ -118,6 +116,7 @@
                     </div>
                 </div>
             </div>
+            <%@include file="component/footer.jsp" %>
     </body>
 
     </html>

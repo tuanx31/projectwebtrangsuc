@@ -42,6 +42,8 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
+            <%@include file="component/footer.jsp" %>
+
     </body>
 
     </html>
