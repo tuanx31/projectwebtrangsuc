@@ -34,7 +34,8 @@
                             </td>
                             <td class="fw-bold dongia">30,988,000đ</td>
                             <td> <button class='btn fw-bold fs-5 btn-light'>-</button>
-                                <input class='inputNumCart text-center border-0 bg-light' value="1" type="text" min="0" />
+                                <input class='inputNumCart text-center border-0 bg-light' value="1" type="text"
+                                    min="0" />
                                 <button class='btn fw-bold fs-5 btn-light'>+</button>
                             </td>
                             <th>30,988,000đ</th>
@@ -43,6 +44,7 @@
 
                     </tbody>
                 </table>
+                <a href="product.jsp">Tiếp tục mua hàng</a>
             </div>
     </body>
 
