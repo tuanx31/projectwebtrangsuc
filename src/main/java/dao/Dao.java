@@ -54,6 +54,23 @@ public class Dao {
 		
 		return list;
 	}
+	public List<Product> searchProduct (String key){
+		List<Product> list = new ArrayList<>();
+		String query = "SELECT * FROM `product` WHERE `name` LIKE '%"+ key+"%'";
+		try {
+			conn = new DbConText().getConnection();
+			ps = conn.prepareStatement(query);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				Product ca = new Product(rs.getInt("id"),rs.getString("name"),rs.getString("desc"),rs.getString("img"),rs.getInt("idCategory"),rs.getInt("price"),rs.getInt("sale_of"));
+				list.add(ca);
+			}
+			conn.close();
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return list;
+	}
 	public Category getCategoryById(String id) {
 		Category cate = new Category();
 		String query = "SELECT * FROM `category` WHERE `id` = "+id;
@@ -71,10 +88,28 @@ public class Dao {
 		}
 		return cate;
 	}
-//	public static void main(String[] args) {
-//		List<Product> listCategory = new Dao().getProductbyCategory("3");
-//		for (Product category : listCategory) {
-//			System.out.println(category.toString());
-//		}
-//	}
+	public Product getProuductById(String id) {
+		Product p = new Product();
+		String query = "SELECT * FROM `product` WHERE `id` = "+id;
+		try {
+			System.out.println(query);
+			conn = new DbConText().getConnection();
+			ps = conn.prepareStatement(query);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				p = new Product(rs.getInt("id"),rs.getString("name"),rs.getString("desc"),rs.getString("img"),rs.getInt("idCategory"),rs.getInt("price"),rs.getInt("sale_of"));
+			}
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return p;
+	}
+	
+	public static void main(String[] args) {
+		List<Product> listCategory = new Dao().getProductbyCategory("1");
+		for (Product category : listCategory) {
+			System.out.println(category.toString());
+		}
+	}
 }

@@ -15,18 +15,16 @@ import model.Product;
 
 @WebServlet(urlPatterns = "/product")
 public class productController extends HttpServlet {
-	
+	private static final long serialVersionUID = 1L;
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String idCategory = req.getParameter("id");
-		System.out.println(idCategory);
 		Category category = new Dao().getCategoryById(idCategory);
 		req.setAttribute("category", category);
-		List<Product> listCategory = new Dao().getProductbyCategory(idCategory);
-		req.setAttribute("listp", listCategory);
+		List<Product> listProduct = new Dao().getProductbyCategory(idCategory);
+		req.setAttribute("listp", listProduct);
 		RequestDispatcher dispathcher = req.getRequestDispatcher("product.jsp");
 		dispathcher.forward(req, resp);
-		
 	}
        
     

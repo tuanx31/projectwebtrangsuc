@@ -41,10 +41,9 @@
                             <th>30,988,000đ</th>
                             <td><i class="fa-solid fa-trash text-danger" style="cursor: pointer;"></i></td>
                         </tr>
-
                     </tbody>
                 </table>
-                <a href="product.jsp">Tiếp tục mua hàng</a>
+                <a href="index.jsp">Tiếp tục mua hàng</a>
             </div>
     </body>
 

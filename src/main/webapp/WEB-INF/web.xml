@@ -29,9 +29,34 @@
     <servlet-name>productController</servlet-name>
     <url-pattern>/productController</url-pattern>
   </servlet-mapping>
-  <dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-		</dependency>
+  <servlet>
+    <description></description>
+    <display-name>detailProduct</display-name>
+    <servlet-name>detailProduct</servlet-name>
+    <servlet-class>controller.detailProduct</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>detailProduct</servlet-name>
+    <url-pattern>/detailProduct</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>detailProductC</display-name>
+    <servlet-name>detailProductC</servlet-name>
+    <servlet-class>controller.detailProductC</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>detailProductC</servlet-name>
+    <url-pattern>/detailProductC</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>serachController</display-name>
+    <servlet-name>serachController</servlet-name>
+    <servlet-class>controller.serachController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>serachController</servlet-name>
+    <url-pattern>/serachController</url-pattern>
+  </servlet-mapping>
 </web-app>
-

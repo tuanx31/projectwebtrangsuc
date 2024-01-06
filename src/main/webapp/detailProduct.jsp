@@ -4,7 +4,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>Insert title here</title>
+        <title>${ pr.name }</title>
         <%@include file="component/allcss.jsp" %>
             <link rel="stylesheet" href="css/detailProduct.css">
     </head>
@@ -13,18 +13,17 @@
         <%@include file="component/header.jsp" %>
             <div class="container my-2">
                 <p><a class="text-dark" href="index.jsp">Trang chủ</a>/<a class="text-dark" href="product?id=1">Trang
-                        sức ngọc trai</a>/ Trang sức ngọc trai South
-                    Sea Pearl</p>
+                        sức ngọc trai</a>/ ${pr.name }</p>
                 <div class="row my-2">
                     <div class="col-12 col-sm-5 text-center">
-                        <img width="80%" height="80%" src="asesst/afeb902078f2hm1_2.jpg" />
+                        <img width="80%" height="auto" src="${pr.img }" />
                     </div>
                     <div class="col-7">
-                        <h4>HOA TAI NGỌC TRAI SOUTHSEA PEARL PJE103</h4>
+                        <h4 class="text-upercase">${pr.name }</h4>
                         <hr>
-                        <span class="text-decoration-line-through">37,050,000đ</span>
+                        <span class="text-decoration-line-through">${pr.price } VND</span>
                         <br>
-                        <span class="text-danger fs-4 fw-bold">37,050,000đ</span>
+                        <span class="text-danger fs-4 fw-bold">${pr.price -pr.price * pr.sale_of /100 } VND</span>
                         <br>
                         <a class="btn" data-bs-toggle="collapse" href="#collapseExample" role="button"
                             aria-expanded="false" aria-controls="collapseExample">
@@ -32,18 +31,7 @@
                         </a>
                         <div class="collapse" id="collapseExample">
                             <div class="card card-body">
-                                Loại sản phẩm:
-                                Nhẫn
-                                Đá chính:
-                                Ngọc trai
-                                Loại ngọc trai:
-                                Southsea Pearl
-                                Đá phụ:
-                                Kim cương trắng
-                                Màu:
-                                Vàng trắng
-                                Chất liệu:
-                                Vàng 18k
+                                ${pr.desc }
                             </div>
                         </div>
                         <p>*Giá có thể thay đổi tùy thuộc vào kích thước và trọng lượng thực tế của sản phẩm.
@@ -58,7 +46,7 @@
                     </div>
                 </div>
                 <hr>
-                <h4>HOA TAI NGỌC TRAI SOUTHSEA PEARL PJE103</h4>
+                <h4>${pr.name }</h4>
                 <p>msp : 1</p>
                 <hr>
                 <div class="lst-supportdtit">

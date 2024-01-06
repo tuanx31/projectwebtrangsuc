@@ -12,7 +12,7 @@
             <div class="container">
                 <div class="top-footer py-2 border-bottom">
                     <div class="logo-tft">
-                        <a href="/" title="Trang sức DOJI">
+                        <a href="index.jsp" title="Trang sức DOJI">
                             <img alt="Trang sức DOJI" src="asesst/logo-t.png" width="207" height="75">
                         </a>
                     </div>

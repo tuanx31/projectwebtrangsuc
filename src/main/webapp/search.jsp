@@ -1,29 +1,27 @@
-<%@page import="java.util.List" %>
-    <%@page import="model.Product" %>
-        <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-            <!DOCTYPE html>
-            <html>
+<%@page import="model.Product" %>
+    <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+        <!DOCTYPE html>
+        <html>
 
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Product</title>
-                <%@include file="component/allcss.jsp" %>
-                    <link rel="stylesheet" href="css/product.css">
-            </head>
+        <head>
+            <meta charset="UTF-8">
+            <%@include file="component/allcss.jsp" %>
+                <title>Tìm kiếm</title>
+                <style>
+                    a {
+                        text-decoration: none !important;
+                    }
+                </style>
+        </head>
+        <%List<Product> sp = (List<Product>)request.getAttribute("sp"); %>
 
-            <body>
-                <%@include file="component/header.jsp" %>
-                    <div class="banner">
-                        <img class="w-100" src="${category.banner }" />
-                    </div>
-                    <div class="container">
-                        <h4 class="text-uppercase w-100 border-bottom py-2">${category.name}</h4>
-                        <div class="row">
-
-                            <% List<Product> p = (List<Product>)request.getAttribute("listp");
-
-                                    for(Product s:p){%>
+                <body>
+                    <%@include file="component/header.jsp" %>
+                        <div class="container">
+                            <span class="my-3"><a href="index.jsp">Trang chủ</a> / Tìm kiếm</span>
+                            <h4 class="text-center text-uppercase">Có ${size} kết quả với từ khóa ${key }</h4>
+                            <div class="row">
+                                <% for(Product s:sp){%>
                                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6">
                                         <a href="productDetail?idp=<%= s.getId()%>"
                                             class="card cusor my-3 shadow rounded-3" style="cursor: pointer;">
@@ -47,12 +45,8 @@
                                         </a>
                                     </div>
                                     <%}%>
-
-
-
+                            </div>
                         </div>
-                    </div>
-                    <%@include file="component/footer.jsp" %>
-            </body>
+                </body>
 
-            </html>
+        </html>
