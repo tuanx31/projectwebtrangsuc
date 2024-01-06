@@ -2,15 +2,17 @@ package DbContext;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.util.List;
+
+import dao.Dao;
+import model.Category;
 
 public class DbConText {
 	private static String DB_URL = "jdbc:mysql://localhost:3306/shoptrangsuc";
 	private static String USER_NAME = "root";
 	private static String PASSWORD = "";
-    
-    
+
+
     public Connection getConnection() {
         Connection conn = null;
         try {
@@ -23,4 +25,5 @@ public class DbConText {
         }
         return conn;
     }
+	
     }

@@ -22,12 +22,26 @@
                     </div>
                     <div class="hd-top-r">
                         <div style="display: inline-block; " class="acount">
+                        <% String username = (String) session.getAttribute("username");%>
+                            	<% if(username != null){ %>
+                            	<a href="#" class="text-dark text-decoration-none ">
+                                <i class="fa-regular fa-user text-danger"></i>${username}</a>
+                                <ul class="menu-account">
+                            	
+                                <li><a href="account">Quản lí tài Khoản</a></li>
+                                <li><a href="cart">Quản lí Đơn Hàng</a></li>
+                              
+                            </ul>
+                                <%}else{ %>
                             <a href="#" class="text-dark text-decoration-none ">
                                 <i class="fa-regular fa-user text-danger"></i>Tài khoản</a>
                             <ul class="menu-account">
-                                <li><a href="">Đăng nhập</a></li>
-                                <li><a href="">Đăng ký</a></li>
+                            	
+                                <li><a href="login">Đăng nhập</a></li>
+                                <li><a href="register">Đăng ký</a></li>
+                              
                             </ul>
+                              <% } %>
                         </div>
 
                         <a href="cart.jsp" class="text-dark text-decoration-none">

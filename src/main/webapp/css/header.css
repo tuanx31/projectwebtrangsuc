@@ -6,7 +6,9 @@
     --border-color: #e0e0e0;
     --violet-color: #6b278c;
 }
-
+body{
+	font-family:var(--font);
+}
 .logo-t {
     position: relative;
 

@@ -9,7 +9,7 @@ public class Category {
 	public Category() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public Category(int id , String name , String desc , String img , String banner ) {
 		this.id = id;
 		this.name = name;
@@ -52,5 +52,5 @@ public class Category {
 	public void setBanner(String banner) {
 		this.banner = banner;
 	}
-	
+
 }
