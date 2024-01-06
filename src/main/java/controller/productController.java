@@ -1,4 +1,4 @@
-package home;
+package controller;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -8,15 +8,15 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Servlet implementation class index
+ * Servlet implementation class productController
  */
-public class index extends HttpServlet {
+public class productController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public index() {
+    public productController() {
         super();
         // TODO Auto-generated constructor stub
     }
