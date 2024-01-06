@@ -7,18 +7,16 @@
             <div class="header container">
                 <div class="hd-top d-flex justify-content-between my-1">
                     <div class="hd-top-l">
-                        <a href="#" class="text-dark text-decoration-none "><i
+                        <a href="#" class="text-dark text-decoration-none me-2"><i
                                 class="fa-regular fa-building text-danger"></i> Về
                             trang sức toji</a>
+                        <a href="" class="text-dark text-decoration-none "><i
+                                class="fa-solid fa-phone text-danger"></i>01234456</a>
                     </div>
                     <div class="hd-top-r">
                         <a href="#" class="text-dark text-decoration-none">
-                            <i class="fa-regular fa-user text-danger
-
-                            "></i>
-                            Tài
-                            khoản</a>
-                        <a href="#" class="text-dark text-decoration-none">
+                            <i class="fa-regular fa-user text-danger"></i>Tài khoản</a>
+                        <a href="cart.jsp" class="text-dark text-decoration-none">
                             <i class="fa-solid fa-cart-shopping text-danger"></i> Giỏ
                             hàng</a>
                     </div>
