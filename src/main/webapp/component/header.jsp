@@ -1,10 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <!DOCTYPE html>
-    <html>
-    <%@include file="allcss.jsp" %>
 
-        <body>
-            <div class="header container">
+
+    <html>
+
+    <head>
+        <link rel="stylesheet" href="css/header.css">
+        <%@include file="allcss.jsp" %>
+    </head>
+
+    <body>
+        <div class="header container">
+            <div class="row">
                 <div class="hd-top d-flex justify-content-between my-1">
                     <div class="hd-top-l">
                         <a href="#" class="text-dark text-decoration-none me-2"><i
@@ -20,8 +27,20 @@
                             <i class="fa-solid fa-cart-shopping text-danger"></i> Giỏ
                             hàng</a>
                     </div>
+
                 </div>
             </div>
-        </body>
+            <div class="row logo-t">
+                <div class="logo text-center border-bottom pb-2">
+                    <a href="index.jsp"><img src="asesst/logo-t.png" alt=""></a>
+                </div>
+                <form action="/search" class="fsearch" method="get">
+                    <input name="q" type="text" placeholder="Tìm kiếm sản phẩm" class="valid input px-2 py-2"
+                        required="" id="AutoComplete">
+                    <button class="btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
+        </div>
+    </body>
 
     </html>
