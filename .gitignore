@@ -1,9 +1,2 @@
-/nbproject/private/
+/build/*
 /build
-.classpath
-.project
-build.xml
-/target
-/.settings
-/nbproject/*
-.gitignore
