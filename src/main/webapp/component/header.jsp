@@ -34,6 +34,9 @@
                                 <li><a href="account">Quản lí tài Khoản</a></li>
                                 <li><a href="cart">Quản lí Đơn Hàng</a></li>
                               
+                                <form action="logout" method="POST"><li><button type="submit">Đăng Xuất</button></form>
+                              
+                              
                             </ul>
                                 <%}else{ %>
                             <a href="#" class="text-dark text-decoration-none ">

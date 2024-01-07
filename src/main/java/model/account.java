@@ -10,8 +10,7 @@ public class account {
 		super();
 		this.username = username;
 		this.password = password;
-		this.email = email;
-		
+		this.email = email;		
 	}
 	public int getRole() {
 		return role;
