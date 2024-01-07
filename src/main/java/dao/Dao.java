@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import DbContext.DbConText;
+import DbContext.dbConText;
 import model.Category;
 import model.Product;
 
@@ -21,7 +21,7 @@ public class Dao {
 		List<Category> listCategory = new ArrayList<>();
 		String query = "SELECT * FROM `category`";
 		try {
-			conn = new DbConText().getConnection();
+			conn = new dbConText().getConnection();
 			ps = conn.prepareStatement(query);
 			rs = ps.executeQuery();
 			while(rs.next()) {
@@ -40,7 +40,7 @@ public class Dao {
 		List<Product> list = new ArrayList<>();
 		String query = "SELECT * FROM `product` WHERE `idCategory` = "+cid;
 		try {
-			conn = new DbConText().getConnection();
+			conn = new dbConText().getConnection();
 			ps = conn.prepareStatement(query);
 			rs = ps.executeQuery();
 			while(rs.next()) {
@@ -58,7 +58,7 @@ public class Dao {
 		List<Product> list = new ArrayList<>();
 		String query = "SELECT * FROM `product` WHERE `name` LIKE '%"+ key+"%'";
 		try {
-			conn = new DbConText().getConnection();
+			conn = new dbConText().getConnection();
 			ps = conn.prepareStatement(query);
 			rs = ps.executeQuery();
 			while(rs.next()) {
@@ -76,7 +76,7 @@ public class Dao {
 		String query = "SELECT * FROM `category` WHERE `id` = "+id;
 		try {
 			System.out.println(query);
-			conn = new DbConText().getConnection();
+			conn = new dbConText().getConnection();
 			ps = conn.prepareStatement(query);
 			rs = ps.executeQuery();
 			while(rs.next()) {
@@ -93,7 +93,7 @@ public class Dao {
 		String query = "SELECT * FROM `product` WHERE `id` = "+id;
 		try {
 			System.out.println(query);
-			conn = new DbConText().getConnection();
+			conn = new dbConText().getConnection();
 			ps = conn.prepareStatement(query);
 			rs = ps.executeQuery();
 			while(rs.next()) {
