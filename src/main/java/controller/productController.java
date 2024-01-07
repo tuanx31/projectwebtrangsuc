@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.util.List;
 
+<<<<<<< HEAD
 import dao.Dao;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -12,6 +13,11 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Category;
 import model.Product;
+=======
+import dao.dao;
+import jakarta.servlet.http.HttpServlet;
+import model.category;
+>>>>>>> anh1
 
 @WebServlet(urlPatterns = "/product")
 public class productController extends HttpServlet {

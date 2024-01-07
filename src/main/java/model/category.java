@@ -1,12 +1,12 @@
 package model;
 
-public class Category {
+public class category {
 	private int id;
 	private String name;
 	private String desc;
 	private String img;
 	private String banner;
-	public Category() {
+	public category() {
 		// TODO Auto-generated constructor stub
 	}
 	

@@ -5,6 +5,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+<<<<<<< HEAD
+=======
+import dao.dao;
+import model.category;
+
+>>>>>>> anh1
 public class dbConText {
 	private static String DB_URL = "jdbc:mysql://localhost:3306/shoptrangsuc";
 	private static String USER_NAME = "root";
