@@ -55,6 +55,26 @@ public class Dao {
 		
 		return list;
 	}
+	
+	public List<Product> getNewProduct (){
+		List<Product> list = new ArrayList<>();
+		String query = "SELECT * FROM product ORDER BY `createAt` DESC LIMIT 4;";
+		try {
+			conn = new dbConText().getConnection();
+			ps = conn.prepareStatement(query);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				Product ca = new Product(rs.getInt("id"),rs.getString("name"),rs.getString("desc"),rs.getString("img"),rs.getInt("idCategory"),rs.getInt("price"),rs.getInt("sale_of"));
+				list.add(ca);
+			}
+			conn.close();
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return list;
+	}
+	
 	public List<Product> searchProduct (String key){
 		List<Product> list = new ArrayList<>();
 		String query = "SELECT * FROM `product` WHERE `name` LIKE '%"+ key+"%'";
@@ -76,7 +96,6 @@ public class Dao {
 		Category cate = new Category();
 		String query = "SELECT * FROM `category` WHERE `id` = "+id;
 		try {
-			System.out.println(query);
 			conn = new dbConText().getConnection();
 			ps = conn.prepareStatement(query);
 			rs = ps.executeQuery();
@@ -106,6 +125,7 @@ public class Dao {
 		}
 		return p;
 	}
+	
 	public void register(account acc) {
 	    String query = "INSERT INTO user (username, password, email) VALUES (?, ?, ?)";
 	    
@@ -177,10 +197,10 @@ public class Dao {
 	        System.out.println("Error executing query: " + e.getMessage());
 	    }return false;
 	}
-//	public static void main(String[] args) {
-//		List<Product> listCategory = new Dao().getProductbyCategory("1");
-//		for (Product category : listCategory) {
-//			System.out.println(category.toString());
-//		}
-//	}
+//        public static void main(String[] args) {
+//        List<Product> list = new Dao().getProductbyCategory("1");
+//            for (Product product : list) {
+//                System.out.println(product.toString());
+//            }
+//    }
 }

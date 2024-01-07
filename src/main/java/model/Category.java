@@ -17,11 +17,7 @@ public class Category {
 		this.img = img;
 		this.banner = banner;
 	}
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
-	}
+        
 	public int getId() {
 		return id;
 	}
@@ -51,6 +47,11 @@ public class Category {
 	}
 	public void setBanner(String banner) {
 		this.banner = banner;
+	}
+
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", name=" + name + ", desc=" + desc + ", img=" + img + ", banner=" + banner + "]";
 	}
 	
 }
