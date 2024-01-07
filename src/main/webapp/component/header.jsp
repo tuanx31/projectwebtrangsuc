@@ -34,6 +34,9 @@
                                 <li><a href="account">Quản lí tài Khoản</a></li>
                                 <li><a href="cart">Quản lí Đơn Hàng</a></li>
                               
+                                <form action="logout" method="POST"><li><button type="submit">Đăng Xuất</button></form>
+                              
+                              
                             </ul>
                                 <%}else{ %>
                             <a href="#" class="text-dark text-decoration-none ">
@@ -70,13 +73,7 @@
                         <ul class="sub-menu">
                             <div class="sub-content">
                                 <div class="sub-left">
-                                     <% 
-                                List<Category> pas = new Dao().getAllCategory();
-                                    for(Category s:pas){%>
-                                    <li><a href="product?id=<%=s.getId()%>">
-                                            <%=s.getName()%>
-                                        </a></li>
-                                    <%}%>
+                                    
                                 </div>
                                 <div class="sub-right">
 
