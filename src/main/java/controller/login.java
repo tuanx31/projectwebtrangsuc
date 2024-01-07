@@ -18,6 +18,7 @@ public class login extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispathcher = request.getRequestDispatcher("login.jsp");
+		System.out.println("vao ham 1");
 		dispathcher.forward(request, response);
 	}
 
@@ -30,12 +31,13 @@ public class login extends HttpServlet {
 		    String password = request.getParameter("password");
 		   
 		    Dao cDao = new Dao();
-		    
+		    System.out.println("vao ham");
 		    
 		 if(cDao.login(username,password)==false) {
 		    	request.setAttribute("error", "tài khoản hoặc mật khẩu không chính xác");
 		    	RequestDispatcher dispathcher = request.getRequestDispatcher("login.jsp");
 		    	dispathcher.forward(request, response);
+		    	System.out.println("123");
 		    }
 		    	else {
 		        // Passwords match, proceed with registration
