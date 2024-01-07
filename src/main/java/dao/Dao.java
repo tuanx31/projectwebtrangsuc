@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import DbContext.dbConText;
 import model.Category;
@@ -177,10 +179,35 @@ public class Dao {
 	        System.out.println("Error executing query: " + e.getMessage());
 	    }return false;
 	}
+	public boolean isAdmin(String username) {
+		String query = "SELECT role FROM user where username = '" + username +"'";
+		try (Connection conn = new dbConText().getConnection();
+		         PreparedStatement ps = conn.prepareStatement(query)){
+		        // Use executeUpdate for INSERT queries
+		       rs = ps.executeQuery();
+		       
+		       
+		    	   if (rs.next()) {
+		    		   
+		                int role = rs.getInt("role");
+		               
+		                if(role==1) {
+		                	
+		                	return true;
+		                }
+		                
+		            }
+		      
+
+		    } catch (Exception e) {
+		        System.out.println("Error executing query: " + e.getMessage());
+		    }return false;
+    }
 	public static void main(String[] args) {
 		List<Product> listCategory = new Dao().getProductbyCategory("1");
 		for (Product category : listCategory) {
 			System.out.println(category.toString());
 		}
 	}
+	
 }
