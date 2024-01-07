@@ -177,10 +177,10 @@ public class Dao {
 	        System.out.println("Error executing query: " + e.getMessage());
 	    }return false;
 	}
-//	public static void main(String[] args) {
-//		List<Product> listCategory = new Dao().getProductbyCategory("1");
-//		for (Product category : listCategory) {
-//			System.out.println(category.toString());
-//		}
-//	}
+	public static void main(String[] args) {
+		List<Product> listCategory = new Dao().getProductbyCategory("1");
+		for (Product category : listCategory) {
+			System.out.println(category.toString());
+		}
+	}
 }

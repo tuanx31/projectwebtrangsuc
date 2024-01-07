@@ -70,13 +70,7 @@
                         <ul class="sub-menu">
                             <div class="sub-content">
                                 <div class="sub-left">
-                                     <% 
-                                List<Category> pas = new Dao().getAllCategory();
-                                    for(Category s:pas){%>
-                                    <li><a href="product?id=<%=s.getId()%>">
-                                            <%=s.getName()%>
-                                        </a></li>
-                                    <%}%>
+                                    
                                 </div>
                                 <div class="sub-right">
 

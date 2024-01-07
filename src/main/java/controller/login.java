@@ -37,7 +37,7 @@ public class login extends HttpServlet {
 		    	request.setAttribute("error", "tài khoản hoặc mật khẩu không chính xác");
 		    	RequestDispatcher dispathcher = request.getRequestDispatcher("login.jsp");
 		    	dispathcher.forward(request, response);
-		    	System.out.println("123");
+		    	
 		    }
 		    	else {
 		        // Passwords match, proceed with registration
