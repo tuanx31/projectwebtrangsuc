@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-import dao.Dao;
+import dao.dao;
 
 
 @WebServlet(urlPatterns = "/loginuser")
@@ -29,7 +29,7 @@ public class login extends HttpServlet {
 		   
 		    String password = request.getParameter("password");
 		   
-		    Dao cDao = new Dao();
+		    dao cDao = new dao();
 		    
 		    
 		 if(cDao.login(username,password)==false) {

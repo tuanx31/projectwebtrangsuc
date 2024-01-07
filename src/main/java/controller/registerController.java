@@ -5,15 +5,15 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import dao.Dao;
+import dao.dao;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.Account;
-import model.Category;
+import model.account;
+import model.category;
 
 @WebServlet(urlPatterns = "/register")
 public class registerController extends HttpServlet {
@@ -29,7 +29,7 @@ public class registerController extends HttpServlet {
 	    String email = request.getParameter("email");
 	    String password = request.getParameter("password");
 	    String repassword = request.getParameter("repassword");
-	    Dao cDao = new Dao();
+	    dao cDao = new dao();
 	    
 	    
 		if(!isUsernameValid(username)|| username.length()<5 || username.length() > 12 ) {
@@ -59,8 +59,8 @@ public class registerController extends HttpServlet {
 	    }
 	    	else {
 	        // Passwords match, proceed with registration
-	        Account acc = new Account(username, email, password);
-	        Dao rDao = new Dao();
+	        account acc = new account(username, email, password);
+	        dao rDao = new dao();
 	        rDao.register(acc);
 	        request.setAttribute("success", "Đăng Ký Thành Công");
 	        RequestDispatcher dispathcher = request.getRequestDispatcher("register.jsp");

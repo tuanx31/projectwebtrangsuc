@@ -2,9 +2,9 @@ package controller;
 
 import java.util.List;
 
-import dao.Dao;
+import dao.dao;
 import jakarta.servlet.http.HttpServlet;
-import model.Category;
+import model.category;
 
 public class productController extends HttpServlet {
 	

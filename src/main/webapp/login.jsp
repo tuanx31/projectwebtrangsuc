@@ -57,14 +57,16 @@
     <script type="text/javascript">
    
     function showToast(message, type) {
+ 
         Toastify({
             text: message,
-            duration: 3000, // Hiển thị toast trong 3 giây
+            duration: 10000, // Hiển thị toast trong 3 giây
             close: true,
             gravity: "top", // Hiển thị ở phía dưới
             position: "right", // Hiển thị ở phía bên phải
             backgroundColor: type === 'error' ? '#ff0000' : '#00ff00', // Màu nền
         }).showToast();
+        
     }
 
                    </script>

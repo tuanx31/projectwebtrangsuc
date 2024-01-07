@@ -6,26 +6,26 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import DbContext.DbConText;
-import model.Account;
-import model.Category;
+import DbContext.dbConText;
+import model.account;
+import model.category;
 
 
 
-public class Dao {
+public class dao {
 	Connection conn = null;
 	PreparedStatement ps = null;
 	ResultSet rs = null;
 
-	public List<Category> getAllCategory (){
-		List<Category> listCategory = new ArrayList<>();
+	public List<category> getAllCategory (){
+		List<category> listCategory = new ArrayList<>();
 		String query = "SELECT * FROM `category`";
 		try {
-			conn = new DbConText().getConnection();
+			conn = new dbConText().getConnection();
 			ps = conn.prepareStatement(query);
 			rs = ps.executeQuery();
 			while(rs.next()) {
-				Category ca = new Category(rs.getInt("id"),rs.getString("name"),rs.getString("desc"),rs.getString("img"),rs.getString("banner"));
+				category ca = new category(rs.getInt("id"),rs.getString("name"),rs.getString("desc"),rs.getString("img"),rs.getString("banner"));
 				listCategory.add(ca);
 			}
 
@@ -35,11 +35,11 @@ public class Dao {
 
 		return listCategory;
 	}
-	public void register(Account acc) {
+	public void register(account acc) {
 	    String query = "INSERT INTO user (username, password, email) VALUES (?, ?, ?)";
 	    
 
-	    try (Connection conn = new DbConText().getConnection();
+	    try (Connection conn = new dbConText().getConnection();
 	         PreparedStatement ps = conn.prepareStatement(query)) {
 
 	        ps.setString(1, acc.getUsername());
@@ -61,7 +61,7 @@ public class Dao {
 	    String query = "SELECT username FROM user where username = '" + username +"'";
 	   
 
-	    try (Connection conn = new DbConText().getConnection();
+	    try (Connection conn = new dbConText().getConnection();
 	         PreparedStatement ps = conn.prepareStatement(query)) {
 
 	        // Use executeUpdate for INSERT queries
@@ -80,7 +80,7 @@ public class Dao {
 	    String query = "SELECT password FROM user where username = '" + username +"'";
 	   
 
-	    try (Connection conn = new DbConText().getConnection();
+	    try (Connection conn = new dbConText().getConnection();
 	         PreparedStatement ps = conn.prepareStatement(query)){
 	        // Use executeUpdate for INSERT queries
 	       rs = ps.executeQuery();
@@ -109,11 +109,11 @@ public class Dao {
 	
 	
 
-//	public static void main(String[] args) {
-//		System.out.println("aloo");
-//		List<Category> listCategory = new Dao().getAllCategory();
-//		for (Category category : listCategory) {
-//			System.out.println(category.getName());
-//		}
-//	}
+	public static void main(String[] args) {
+		
+		List<category> listCategory = new dao().getAllCategory();
+		for (category category : listCategory) {
+			System.out.println(category.getName());
+		}
+	}
 }

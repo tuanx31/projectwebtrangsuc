@@ -4,10 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.List;
 
-import dao.Dao;
-import model.Category;
+import dao.dao;
+import model.category;
 
-public class DbConText {
+public class dbConText {
 	private static String DB_URL = "jdbc:mysql://localhost:3306/shoptrangsuc";
 	private static String USER_NAME = "root";
 	private static String PASSWORD = "";

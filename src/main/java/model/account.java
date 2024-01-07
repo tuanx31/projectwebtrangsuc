@@ -1,7 +1,7 @@
 package model;
 
 
-public class Account {
+public class account {
 	
 
 	
@@ -11,7 +11,7 @@ public class Account {
 	private String email;
 	private int role;
 	
-	public Account(String username, String password, String email) {
+	public account(String username, String password, String email) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -24,7 +24,7 @@ public class Account {
 	public void setRole(int role) {
 		this.role = role;
 	}
-	public Account() {
+	public account() {
 		super();
 	}
 	public String getUsername() {
