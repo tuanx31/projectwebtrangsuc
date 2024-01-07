@@ -79,4 +79,14 @@
     <servlet-name>login</servlet-name>
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>adminProduct</display-name>
+    <servlet-name>adminProduct</servlet-name>
+    <servlet-class>controller.adminProduct</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>adminProduct</servlet-name>
+    <url-pattern>/adminProduct</url-pattern>
+  </servlet-mapping>
 </web-app>
