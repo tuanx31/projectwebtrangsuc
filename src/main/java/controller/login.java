@@ -38,7 +38,7 @@ public class login extends HttpServlet {
 		    	request.setAttribute("error", "tài khoản hoặc mật khẩu không chính xác");
 		    	RequestDispatcher dispathcher = request.getRequestDispatcher("login.jsp");
 		    	dispathcher.forward(request, response);
-		    	
+		    	System.out.println("sai");
 		    }
 		    	else {
 		    		
@@ -49,11 +49,12 @@ public class login extends HttpServlet {
 		       
 		        request.setAttribute("success", "Đăng Nhập Thành Công");
 		        if(cDao.isAdmin(username)==true) {
-		        	RequestDispatcher dispathcher = request.getRequestDispatcher("admin.jsp");
-			    	dispathcher.forward(request, response);
+		        	response.sendRedirect("admin/admin.jsp");
+//		        	System.out.println("admin");
+//		        	RequestDispatcher dispathcher = request.getRequestDispatcher("admin.jsp");
+//			    	dispathcher.forward(request, response);
 		        }else {
 		        	response.sendRedirect("index.jsp");
-					
 		        }
 		    }
 	}

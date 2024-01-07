@@ -212,7 +212,6 @@ public class Dao {
 		                int role = rs.getInt("role");
 		               
 		                if(role==1) {
-		                	
 		                	return true;
 		                }
 		                

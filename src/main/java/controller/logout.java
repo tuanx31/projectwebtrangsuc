@@ -10,7 +10,6 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-import dao.Dao;
 
 @WebServlet("/logoutvv")
 public class logout extends HttpServlet {
