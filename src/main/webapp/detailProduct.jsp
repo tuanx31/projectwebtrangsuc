@@ -1,3 +1,4 @@
+<%@page import="model.Product"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <!DOCTYPE html>
     <html>
@@ -22,7 +23,10 @@
                         <hr>
                         <span class="text-decoration-line-through">${pr.price } VND</span>
                         <br>
-                        <span class="text-danger fs-4 fw-bold">${pr.price -pr.price * pr.sale_of /100 } VND</span>
+                        <%Product product = (Product) request.getAttribute("pr");
+                        int prices = product.getPrice() -product.getPrice() * product.getPrice() /100;
+                        %>
+                        <span class="text-danger fs-4 fw-bold"><%=prices %> VND</span>
                         <br>
                         <a class="btn" data-bs-toggle="collapse" href="#collapseExample" role="button"
                             aria-expanded="false" aria-controls="collapseExample">
@@ -39,7 +43,7 @@
                         <span>Số lượng :</span> <input type="number" width="30px" value="1">
                         <hr>
                         <div class="w-100 mt-3">
-                            <button class="btn btn-primary">Mua ngay</button>
+                            <button class="btn btn-primary mb-1">Mua ngay</button>
                             <form action="AddtoCart?idp=${pr.id}" method="POST"><button class="btn btn-warning" type="submit">Thêm vào giỏ hàng</button></form>
                             
                         </div>

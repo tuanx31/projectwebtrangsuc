@@ -14,7 +14,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 import model.Category;
-import model.Product;
 
 @MultipartConfig(
 		  fileSizeThreshold = 1024 * 1024 * 1, // 1 MB
@@ -39,7 +38,7 @@ public class editCategory extends HttpServlet{
 	    Part path = req.getPart("img");
 	    String id= req.getParameter("idp");
 		Category tpm = new Dao().getCategoryById(id);
-	    String base64String = tpm.getBanner();
+	    String base64String = tpm.getBanner ();
 	    
 	    String fileName = path.getSubmittedFileName();
 	    System.out.println(fileName);

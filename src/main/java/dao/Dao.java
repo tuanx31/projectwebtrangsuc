@@ -430,11 +430,100 @@ public class Dao {
     return false;
   }
 
-  public static void main(String[] args) {
-    List<Category> listCategory = new Dao().getAllCategory();
-      System.out.println(listCategory.size());
-    for (Category category : listCategory) {
-      System.out.println(category.toString());
+  public List<account> getAllUser() {
+    List<account> list = new ArrayList<>();
+    String query = "SELECT * FROM `user`";
+    System.out.println(query);
+    try {
+      conn = new dbConText().getConnection();
+      ps = conn.prepareStatement(query);
+      rs = ps.executeQuery();
+      while (rs.next()) {
+        account ca = new account(
+          rs.getInt("id"),
+          rs.getString("username"),
+          rs.getString("password"),
+          rs.getString("email"),
+          rs.getInt("role")
+        );
+        list.add(ca);
+      }
+      conn.close();
+    } catch (Exception e) {
+      // TODO: handle exception
     }
+
+    return list;
   }
+  public void deleteUser(String id) {
+	    String query = "DELETE FROM `user` WHERE `user`.`id` = " + id;
+	    System.out.println(query);
+	    try (
+	      Connection conn = new dbConText().getConnection();
+	      PreparedStatement ps = conn.prepareStatement(query)
+	    ) {
+	      // Use executeUpdate for INSERT queries
+	      int rowsAffected = ps.executeUpdate();
+
+	      // Check the number of rows affected if needed
+	      System.out.println(rowsAffected + " row(s) affected");
+	    } catch (Exception e) {
+	      System.out.println("Error executing query: " + e.getMessage());
+	    }
+	  }
+  public account getUserById(String id) {
+	  	account p = new account();
+	    String query = "SELECT * FROM `user` WHERE `id` = " + id;
+	    try {
+	      //System.out.println(query);
+	      conn = new dbConText().getConnection();
+	      ps = conn.prepareStatement(query);
+	      rs = ps.executeQuery();
+	      while (rs.next()) {
+	    	  	p = new account(
+                rs.getInt("id"),
+                rs.getString("username"),
+                rs.getString("password"),
+                rs.getString("email"),
+                rs.getInt("role")
+              );
+	      }
+	    } catch (Exception e) {
+	      // TODO: handle exception
+	    }
+	    return p;
+	  }
+  public void editUser(account acc) {
+	    String query =
+	      "UPDATE `user` SET `username`= '" +
+	      acc.getUsername() +
+	      "', `password` = '" +
+	      acc.getPassword() +
+	      "', `email`='" +
+	      acc.getEmail()
+	      +"', `role` = '"+
+	      acc.getRole()+
+	      "' WHERE  `user`.`id` = " +
+	      acc.getId();
+	    System.out.println(query);
+	    try (
+	      Connection conn = new dbConText().getConnection();
+	      PreparedStatement ps = conn.prepareStatement(query)
+	    ) {
+	      // Use executeUpdate for INSERT queries
+	      int rowsAffected = ps.executeUpdate();
+
+	      // Check the number of rows affected if needed
+	      System.out.println(rowsAffected + " row(s) affected");
+	    } catch (Exception e) {
+	      System.out.println("Error executing query: " + e.getMessage());
+	    }
+	  }
+//  public static void main(String[] args) {
+//    List<account> listCategory = new Dao().getAllUser();
+//      System.out.println(listCategory.size());
+//    for (account category : listCategory) {
+//      System.out.println(category.toString());
+//    }
+//  }
 }

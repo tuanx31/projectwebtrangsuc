@@ -57,7 +57,7 @@ public class registerController extends HttpServlet {
 	    }
 	    	else {
 	        // Passwords match, proceed with registration
-	        account acc = new account(username, email, password);
+	        account acc = new account(1,username, email, password,0);
 	        Dao rDao = new Dao();
 	        rDao.register(acc);
 	        request.setAttribute("success", "Đăng Ký Thành Công");

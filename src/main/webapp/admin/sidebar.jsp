@@ -80,6 +80,10 @@
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-layer-group"></i></div>
                             Category
                         </a>
+                        <a class="nav-link" href="adminuser">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
+                            User
+                        </a>
                     </div>
                 </div>
             </nav>

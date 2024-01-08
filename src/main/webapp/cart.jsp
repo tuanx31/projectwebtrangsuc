@@ -43,7 +43,7 @@
                                 <td class="text-muted fw-normal">
                                     <p class='mt-1'><%=cartItem.getName()%></p>
                                 </td>
-                                <td class="fw-bold dongia"><%=(int)cartItem.getPrice() %></td>
+                                <td class="fw-bold dongia"><%=(int)cartItem.getPrice() %> VND</td>
                                 <td>
                                 	<form action="AddtoCartC" method="post">
                                 
@@ -66,7 +66,7 @@
                                 <td><form action="AddtoCartC" method="post">
                                 
                                 <input name="productId" value="<%=cartItem.getId() %>" class="d-none">
-                                <input type="submit" name="action" value="delete">
+                                <input type="submit" name="action" class="btn btn-danger" value="delete">
                                </form></td>
                             </tr>
                 <%
@@ -82,7 +82,7 @@
             </tbody>
         </table>
         <div class="text-end mt-3">
-            <strong>Tổng đơn hàng: <%=(int)totalAmount  %></strong>
+            <strong>Tổng đơn hàng: <%=(int)totalAmount  %> VND</strong>
         </div>
         <a href="index.jsp">Tiếp tục mua hàng</a>
     </div>
