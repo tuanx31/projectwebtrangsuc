@@ -154,3 +154,9 @@ ul li a {
     font-style: 14px;
 }
 
+@media only screen and (max-width: 700px) {
+    .fsearch{
+    position: relative !important;
+    width: 100% !important;;
+    }
+}
