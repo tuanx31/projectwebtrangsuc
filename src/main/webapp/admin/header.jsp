@@ -36,7 +36,10 @@
                             <li>
                                 <hr class="dropdown-divider" />
                             </li>
-                            <li><a class="dropdown-item" href="#!">Logout</a></li>
+                              <li>
+                      <form action="logout" method="POST"><li><button class="btn" type="submit">Đăng Xuất</button></form>
+                                                                            </li>
+                            
                         </ul>
                     </li>
                 </ul>

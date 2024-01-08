@@ -34,7 +34,8 @@
                     if (cartItems != null && !cartItems.isEmpty()) {
                         for (Cart cartItem : cartItems) {
                         	double itemTotal = cartItem.getPrice() * cartItem.getAmount();
-                            totalAmount += itemTotal; // Update the total amount
+                            totalAmount += itemTotal; 
+                            
                 %>
                             <tr class="text-center desktopItemCart" style="vertical-align: middle;">
                                 <td scope="row"><img src="<%=cartItem.getUrlImg() %>" alt="hình ảnh"
@@ -42,7 +43,7 @@
                                 <td class="text-muted fw-normal">
                                     <p class='mt-1'><%=cartItem.getName()%></p>
                                 </td>
-                                <td class="fw-bold dongia"><%=cartItem.getPrice() %></td>
+                                <td class="fw-bold dongia"><%=(int)cartItem.getPrice() %></td>
                                 <td>
                                 	<form action="AddtoCartC" method="post">
                                 
@@ -60,7 +61,7 @@
                                     
                                     
                                 </td>
-                               <td><%=cartItem.getPrice()*cartItem.getAmount() %></td>
+                               <td><%=(int)cartItem.getPrice()*cartItem.getAmount() %></td>
                                
                                 <td><form action="AddtoCartC" method="post">
                                 
@@ -81,7 +82,7 @@
             </tbody>
         </table>
         <div class="text-end mt-3">
-            <strong>Tổng đơn hàng: <%= totalAmount %></strong>
+            <strong>Tổng đơn hàng: <%=(int)totalAmount  %></strong>
         </div>
         <a href="index.jsp">Tiếp tục mua hàng</a>
     </div>
