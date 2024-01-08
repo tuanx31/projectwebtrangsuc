@@ -108,6 +108,9 @@
   <servlet-mapping>
     <servlet-name>editProduct</servlet-name>
     <url-pattern>/editProduct</url-pattern>
+  </servlet-mapping>
+   <servlet>
+   <description></description>
     <display-name>AddtoCart</display-name>
     <servlet-name>AddtoCart</servlet-name>
     <servlet-class>controller.AddtoCart</servlet-class>
