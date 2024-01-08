@@ -501,7 +501,7 @@ public class Dao {
 	  }
   public account getUserByUsername(String user) {
 	  	account p = new account();
-	    String query = "SELECT * FROM `user` WHERE `username` = " + user;
+	    String query = "SELECT * FROM `user` WHERE `username` = '" + user+"'";
 	    try {
 	      //System.out.println(query);
 	      conn = new dbConText().getConnection();
