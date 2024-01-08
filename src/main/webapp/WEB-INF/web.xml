@@ -109,8 +109,8 @@
     <servlet-name>editProduct</servlet-name>
     <url-pattern>/editProduct</url-pattern>
   </servlet-mapping>
-   <servlet>
-   <description></description>
+  <servlet>
+    <description></description>
     <display-name>AddtoCart</display-name>
     <servlet-name>AddtoCart</servlet-name>
     <servlet-class>controller.AddtoCart</servlet-class>
@@ -118,5 +118,15 @@
   <servlet-mapping>
     <servlet-name>AddtoCart</servlet-name>
     <url-pattern>/AddtoCart</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>order</display-name>
+    <servlet-name>order</servlet-name>
+    <servlet-class>controller.order</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>order</servlet-name>
+    <url-pattern>/order</url-pattern>
   </servlet-mapping>
 </web-app>
