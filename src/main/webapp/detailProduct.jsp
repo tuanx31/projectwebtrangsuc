@@ -36,11 +36,12 @@
                         <p>*Giá có thể thay đổi tùy thuộc vào kích thước và trọng lượng thực tế của sản phẩm.
                             Vui lòng gọi 1800 1168 để được hỗ trợ.</p>
                         <hr>
-                        <span>Số lượng :</span> <input type="number" width="30px">
+                        <span>Số lượng :</span> <input type="number" width="30px" value="1">
                         <hr>
                         <div class="w-100 mt-3">
                             <button class="btn btn-primary">Mua ngay</button>
-                            <button class="btn btn-warning">Thêm vào giỏ hàng</button>
+                            <form action="AddtoCart?idp=${pr.id}" method="POST"><button class="btn btn-warning" type="submit">Thêm vào giỏ hàng</button></form>
+                            
                         </div>
                     </div>
                 </div>
