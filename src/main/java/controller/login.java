@@ -46,7 +46,7 @@ public class login extends HttpServlet {
      account a = cDao.getUserByUsername(username);
       // Passwords match, proceed with registration
       HttpSession session = request.getSession();
-      session.setAttribute("username", a.getUsername());
+      session.setAttribute("username", username);
       session.setAttribute("id", a.getId());
 
       request.setAttribute("success", "Đăng Nhập Thành Công");
