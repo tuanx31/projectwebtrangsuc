@@ -30,6 +30,7 @@ public class AddtoCart extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String idp = request.getParameter("idp");
+		String number = request.getParameter("number");
 		Product pr = new Dao().getProuductById(idp);
 		
 		
@@ -43,7 +44,7 @@ public class AddtoCart extends HttpServlet {
 	        
 	        
 	       if(idp != null) {
-	    	 addItemToCart(cart, pr, idp);
+	    	 addItemToCart(cart, pr, idp,Integer.parseInt(number));
 	        response.sendRedirect("cart.jsp");
 	       }
 
@@ -74,7 +75,7 @@ public class AddtoCart extends HttpServlet {
 	        	 String productId = request.getParameter("productId");
 	        	 Product pru = new Dao().getProuductById(productId);
 		           
-	        	 addItemToCart(cart, pru, productId);
+	        	 addItemToCart(cart, pru, productId,1);
 	            
 	            response.sendRedirect("cart.jsp");
 	        }
@@ -84,13 +85,13 @@ public class AddtoCart extends HttpServlet {
 
 		
 	}
-	   private void addItemToCart(List<Cart> cart, Product product, String productId) {
+	   private void addItemToCart(List<Cart> cart, Product product, String productId ,int amount) {
 	        int ipd = Integer.parseInt(productId);
 	        boolean productExists = false;
 
 	        for (Cart item : cart) {
 	            if (item.getId() == ipd) {
-	                item.setAmount(item.getAmount() + 1);
+	                item.setAmount(item.getAmount() + amount);
 	                productExists = true;
 	                break;
 	            }
@@ -98,7 +99,7 @@ public class AddtoCart extends HttpServlet {
 
 	        if (!productExists) {
 	            double price = product.getPrice() - (product.getPrice() * product.getSale_of() / 100);
-	            Cart newItem = new Cart(ipd, product.getName(), 1, price, product.getImg());
+	            Cart newItem = new Cart(ipd, product.getName(), amount, price, product.getImg());
 	            cart.add(newItem);
 	        }
 	    }

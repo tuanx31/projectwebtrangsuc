@@ -408,27 +408,7 @@ public class Dao {
     return false;
   }
 
-  public boolean isAdmin(String username) {
-    String query = "SELECT role FROM user where username = '" + username + "'";
-    try (
-      Connection conn = new dbConText().getConnection();
-      PreparedStatement ps = conn.prepareStatement(query)
-    ) {
-      // Use executeUpdate for INSERT queries
-      rs = ps.executeQuery();
-
-      if (rs.next()) {
-        int role = rs.getInt("role");
-
-        if (role == 1) {
-          return true;
-        }
-      }
-    } catch (Exception e) {
-      System.out.println("Error executing query: " + e.getMessage());
-    }
-    return false;
-  }
+ 
 
   public List<account> getAllUser() {
     List<account> list = new ArrayList<>();
@@ -519,6 +499,29 @@ public class Dao {
 	      System.out.println("Error executing query: " + e.getMessage());
 	    }
 	  }
+  public account getUserByUsername(String user) {
+	  	account p = new account();
+	    String query = "SELECT * FROM `user` WHERE `username` = " + user;
+	    try {
+	      //System.out.println(query);
+	      conn = new dbConText().getConnection();
+	      ps = conn.prepareStatement(query);
+	      rs = ps.executeQuery();
+	      while (rs.next()) {
+	    	  	p = new account(
+              rs.getInt("id"),
+              rs.getString("username"),
+              rs.getString("password"),
+              rs.getString("email"),
+              rs.getInt("role")
+            );
+	      }
+	    } catch (Exception e) {
+	      // TODO: handle exception
+	    }
+	    return p;
+	  }
+  
 //  public static void main(String[] args) {
 //    List<account> listCategory = new Dao().getAllUser();
 //      System.out.println(listCategory.size());

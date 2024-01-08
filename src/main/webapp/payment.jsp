@@ -15,7 +15,7 @@
                 <div class=" col-12 row my-2">
 
                     <div class="col-8">
-                        <form action="payment">
+                        <form action="order" method="post" >
                             <div class="title-2">
                                 <h2>Thông tin người mua</h2>
 
@@ -68,7 +68,7 @@
                                         <li class="item-payment ">
                                             <div class="w100">
                                                 <input type="radio" id="payment_method_cod" name="payment_method"
-                                                    value="COD" required>
+                                                    value="COD" required checked="true">
                                                 <label for="payment_method_cod" class="ml15 color-default fw-bold">
                                                     Trả tiền mặt khi nhận hàng (COD)
                                                 </label>

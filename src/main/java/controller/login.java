@@ -8,6 +8,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.account;
+
 import java.io.IOException;
 
 @WebServlet(urlPatterns = "/loginuser")
@@ -41,16 +43,16 @@ public class login extends HttpServlet {
       dispathcher.forward(request, response);
       System.out.println("sai");
     } else {
+     account a = cDao.getUserByUsername(username);
       // Passwords match, proceed with registration
       HttpSession session = request.getSession();
-      session.setAttribute("username", username);
+      session.setAttribute("username", a.getUsername());
+      session.setAttribute("id", a.getId());
 
       request.setAttribute("success", "Đăng Nhập Thành Công");
-      if (cDao.isAdmin(username) == true) {
+      if (a.getRole() == 1) {
         response.sendRedirect("admin");
-        //		        	System.out.println("admin");
-        //		        	RequestDispatcher dispathcher = request.getRequestDispatcher("admin.jsp");
-        //			    	dispathcher.forward(request, response);
+       
       } else {
         response.sendRedirect("index.jsp");
       }

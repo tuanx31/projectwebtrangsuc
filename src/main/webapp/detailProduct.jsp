@@ -24,7 +24,7 @@
                         <span class="text-decoration-line-through">${pr.price } VND</span>
                         <br>
                         <%Product product = (Product) request.getAttribute("pr");
-                        int prices = product.getPrice() -product.getPrice() * product.getPrice() /100;
+                        int prices = product.getPrice() -product.getPrice() * product.getSale_of() /100;
                         %>
                         <span class="text-danger fs-4 fw-bold"><%=prices %> VND</span>
                         <br>
@@ -40,13 +40,15 @@
                         <p>*Giá có thể thay đổi tùy thuộc vào kích thước và trọng lượng thực tế của sản phẩm.
                             Vui lòng gọi 1800 1168 để được hỗ trợ.</p>
                         <hr>
-                        <span>Số lượng :</span> <input type="number" width="30px" value="1">
+                        <form action="AddtoCart?idp=${pr.id}" method="POST">
+                        <span>Số lượng :</span> <input type="number" name="number" width="30px" value="1">
                         <hr>
                         <div class="w-100 mt-3">
-                            <button class="btn btn-primary mb-1">Mua ngay</button>
-                            <form action="AddtoCart?idp=${pr.id}" method="POST"><button class="btn btn-warning" type="submit">Thêm vào giỏ hàng</button></form>
+                            
+                            <button class="btn btn-warning" type="submit">Thêm vào giỏ hàng</button>
                             
                         </div>
+                        </form>
                     </div>
                 </div>
                 <hr>
