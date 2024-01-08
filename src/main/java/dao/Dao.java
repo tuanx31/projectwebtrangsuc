@@ -78,7 +78,7 @@ public class Dao {
 		Category cate = new Category();
 		String query = "SELECT * FROM `category` WHERE `id` = "+id;
 		try {
-			System.out.println(query);
+			// System.out.println(query);
 			conn = new dbConText().getConnection();
 			ps = conn.prepareStatement(query);
 			rs = ps.executeQuery();
@@ -95,7 +95,7 @@ public class Dao {
 		Product p = new Product();
 		String query = "SELECT * FROM `product` WHERE `id` = "+id;
 		try {
-			System.out.println(query);
+			//System.out.println(query);
 			conn = new dbConText().getConnection();
 			ps = conn.prepareStatement(query);
 			rs = ps.executeQuery();
@@ -203,11 +203,11 @@ public class Dao {
 		        System.out.println("Error executing query: " + e.getMessage());
 		    }return false;
     }
-	public static void main(String[] args) {
-		List<Product> listCategory = new Dao().getProductbyCategory("1");
-		for (Product category : listCategory) {
-			System.out.println(category.toString());
-		}
-	}
+//	public static void main(String[] args) {
+//		List<Product> listCategory = new Dao().getProductbyCategory("1");
+//		for (Product category : listCategory) {
+//			System.out.println(category.toString());
+//		}
+//	}
 	
 }

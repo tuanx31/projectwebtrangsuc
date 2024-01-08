@@ -89,4 +89,14 @@
     <servlet-name>logout</servlet-name>
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddtoCart</display-name>
+    <servlet-name>AddtoCart</servlet-name>
+    <servlet-class>controller.AddtoCart</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddtoCart</servlet-name>
+    <url-pattern>/AddtoCart</url-pattern>
+  </servlet-mapping>
 </web-app>
