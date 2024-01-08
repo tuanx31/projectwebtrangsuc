@@ -84,6 +84,10 @@
                             <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
                             User
                         </a>
+                        <a class="nav-link" href="orderAdmin">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-truck-fast"></i></i></div>
+                            Order
+                        </a>
                     </div>
                 </div>
             </nav>
