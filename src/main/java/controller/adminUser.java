@@ -10,16 +10,22 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import model.account;
 @WebServlet(urlPatterns = "/adminuser")
 public class adminUser extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		HttpSession session = req.getSession();
+		String username = (String)session.getAttribute("username");
+        if (new Dao().getUserByUsername(username).getRole() != 1) {
+			resp.sendRedirect("index.jsp");
+		}else {
 		
 	    List<account> listProduct = new Dao().getAllUser();
 	    req.setAttribute("listproduct", listProduct);
 		RequestDispatcher dispath = req.getRequestDispatcher("admin/AdminUser.jsp" );
-	    dispath.forward(req, resp);
+	    dispath.forward(req, resp);}
 	}
 	
 	@Override

@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
 
 import java.io.IOException;
@@ -49,7 +50,12 @@ public class adminProduct extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
     throws ServletException, IOException {
-    showProduct(req, resp);
+		HttpSession session = req.getSession();
+		String username = (String)session.getAttribute("username");
+      if (new Dao().getUserByUsername(username).getRole() != 1) {
+			resp.sendRedirect("index.jsp");
+		}else {
+    showProduct(req, resp);}
   }
 
   private void insertProduct(HttpServletRequest req, HttpServletResponse resp)

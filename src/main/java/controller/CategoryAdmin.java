@@ -13,6 +13,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
 import model.Category;
 
@@ -26,10 +27,16 @@ public class CategoryAdmin extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		HttpSession session = req.getSession();
+		String username = (String)session.getAttribute("username");
+        if (new Dao().getUserByUsername(username).getRole() != 1) {
+			resp.sendRedirect("index.jsp");
+		}else {
+		
 		List<Category> list = new Dao().getAllCategory();
 		req.setAttribute("listCate", list);
 	    RequestDispatcher dispath = req.getRequestDispatcher("admin/CategoryAdmin.jsp");
-	    dispath.forward(req, resp);
+	    dispath.forward(req, resp);}
 	}
 	@Override
 	  protected void doPost(
