@@ -4,17 +4,15 @@ public class Category {
 	private int id;
 	private String name;
 	private String desc;
-	private String img;
 	private String banner;
 	public Category() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Category(int id , String name , String desc , String img , String banner ) {
+	public Category(int id , String name , String desc , String banner ) {
 		this.id = id;
 		this.name = name;
 		this.desc = desc;
-		this.img = img;
 		this.banner = banner;
 	}
         
@@ -36,12 +34,6 @@ public class Category {
 	public void setDesc(String desc) {
 		this.desc = desc;
 	}
-	public String getImg() {
-		return img;
-	}
-	public void setImg(String img) {
-		this.img = img;
-	}
 	public String getBanner() {
 		return banner;
 	}
@@ -51,7 +43,7 @@ public class Category {
 
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", name=" + name + ", desc=" + desc + ", img=" + img + ", banner=" + banner + "]";
+		return "Category [id=" + id + ", name=" + name + ", desc=" + desc + ", banner=" + banner + "]";
 	}
 	
 }

@@ -76,9 +76,9 @@
                             <div class="sb-nav-link-icon"><i class="fa-brands fa-product-hunt"></i></div>
                             Product
                         </a>
-                        <a class="nav-link" href="">
-                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                            Tables
+                        <a class="nav-link" href="admincategory">
+                            <div class="sb-nav-link-icon"><i class="fa-solid fa-layer-group"></i></div>
+                            Category
                         </a>
                     </div>
                 </div>

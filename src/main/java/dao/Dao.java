@@ -21,6 +21,7 @@ public class Dao {
   public List<Category> getAllCategory() {
     List<Category> listCategory = new ArrayList<>();
     String query = "SELECT * FROM `category`";
+    System.out.println(query);
     try {
       conn = new dbConText().getConnection();
       ps = conn.prepareStatement(query);
@@ -30,7 +31,6 @@ public class Dao {
           rs.getInt("id"),
           rs.getString("name"),
           rs.getString("desc"),
-          rs.getString("img"),
           rs.getString("banner")
         );
         listCategory.add(ca);
@@ -126,7 +126,69 @@ public class Dao {
       System.out.println("Error executing query: " + e.getMessage());
     }
   }
+  public void InsertCategory(Category acc) {
+	    String query =
+	      "INSERT INTO `category` (`name`, `desc`, `banner`) VALUES ( '" +
+	      acc.getName() +
+	      "', '" +
+	      acc.getDesc() +
+	      "','" +
+	      acc.getBanner() +
+	      "');";
+	    System.out.println(query);
+	    try (
+	      Connection conn = new dbConText().getConnection();
+	      PreparedStatement ps = conn.prepareStatement(query)
+	    ) {
+	      // Use executeUpdate for INSERT queries
+	      int rowsAffected = ps.executeUpdate();
 
+	      // Check the number of rows affected if needed
+	      System.out.println(rowsAffected + " row(s) affected");
+	    } catch (Exception e) {
+	      System.out.println("Error executing query: " + e.getMessage());
+	    }
+	  }
+  public void deleteCategory(String id) {
+	    String query = "DELETE FROM `category` WHERE `category`.`id` = " + id;
+	    System.out.println(query);
+	    try (
+	      Connection conn = new dbConText().getConnection();
+	      PreparedStatement ps = conn.prepareStatement(query)
+	    ) {
+	      // Use executeUpdate for INSERT queries
+	      int rowsAffected = ps.executeUpdate();
+
+	      // Check the number of rows affected if needed
+	      System.out.println(rowsAffected + " row(s) affected");
+	    } catch (Exception e) {
+	      System.out.println("Error executing query: " + e.getMessage());
+	    }
+	  }
+  public void editCategory(Category acc) {
+	    String query =
+	      "UPDATE `category` SET `name`= '" +
+	      acc.getName() +
+	      "', `desc` = '" +
+	      acc.getDesc() +
+	      "', `banner`='" +
+	      acc.getBanner()
+	      +"' WHERE  `category`.`id` = " +
+	      acc.getId();
+	    System.out.println(query);
+	    try (
+	      Connection conn = new dbConText().getConnection();
+	      PreparedStatement ps = conn.prepareStatement(query)
+	    ) {
+	      // Use executeUpdate for INSERT queries
+	      int rowsAffected = ps.executeUpdate();
+
+	      // Check the number of rows affected if needed
+	      System.out.println(rowsAffected + " row(s) affected");
+	    } catch (Exception e) {
+	      System.out.println("Error executing query: " + e.getMessage());
+	    }
+	  }
   public void editProduct(Product acc) {
     String query =
       "UPDATE `product` SET `name`= '" +
@@ -241,7 +303,6 @@ public class Dao {
             rs.getInt("id"),
             rs.getString("name"),
             rs.getString("desc"),
-            rs.getString("img"),
             rs.getString("banner")
           );
       }
@@ -370,8 +431,9 @@ public class Dao {
   }
 
   public static void main(String[] args) {
-    List<Product> listCategory = new Dao().getAllProduct();
-    for (Product category : listCategory) {
+    List<Category> listCategory = new Dao().getAllCategory();
+      System.out.println(listCategory.size());
+    for (Category category : listCategory) {
       System.out.println(category.toString());
     }
   }
