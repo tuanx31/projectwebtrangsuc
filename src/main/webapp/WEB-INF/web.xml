@@ -81,16 +81,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>adminProduct</display-name>
-    <servlet-name>adminProduct</servlet-name>
-    <servlet-class>controller.adminProduct</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>adminProduct</servlet-name>
-    <url-pattern>/adminProduct</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>logout</display-name>
     <servlet-name>logout</servlet-name>
     <servlet-class>controller.logout</servlet-class>
@@ -108,5 +98,15 @@
   <servlet-mapping>
     <servlet-name>logoutC</servlet-name>
     <url-pattern>/logoutC</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>editProduct</display-name>
+    <servlet-name>editProduct</servlet-name>
+    <servlet-class>controller.editProduct</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>editProduct</servlet-name>
+    <url-pattern>/editProduct</url-pattern>
   </servlet-mapping>
 </web-app>

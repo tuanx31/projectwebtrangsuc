@@ -12,8 +12,7 @@
     <body>
         <%@include file="component/header.jsp" %>
             <div class="container my-2">
-                <p><a class="text-dark" href="index.jsp">Trang chủ</a>/<a class="text-dark" href="product?id=1">Trang
-                        sức ngọc trai</a>/ ${pr.name }</p>
+                <p><a class="text-dark" href="index.jsp">Trang chủ</a>/ ${pr.name }</p>
                 <div class="row my-2">
                     <div class="col-12 col-sm-5 text-center">
                         <img width="80%" height="auto" src="${pr.img }" />
