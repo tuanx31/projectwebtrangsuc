@@ -27,19 +27,19 @@
                                 <div class="formw-inf">
                                     <div class="input-group flex-nowrap">
                                     	<input type="hidden" name="total" value="<%=(long)totalAmount%>">
-                                        <span class="input-group-text" id="addon-wrapping">Họ Tên</span>
+                                        <span class="input-group-text" id="addon-wrapping" >Họ Tên</span>
                                         <input type="text" class="form-control" placeholder="" name="name" aria-label="Username"
-                                            aria-describedby="addon-wrapping">
+                                            aria-describedby="addon-wrapping" required>
                                     </div>
                                     <div class="input-group flex-nowrap mt-3">
                                         <span class="input-group-text" id="addon-wrapping">Số Điện Thoại</span>
                                         <input type="text" class="form-control" placeholder="" aria-label="phone" name="phone"
-                                            aria-describedby="addon-wrapping">
+                                            aria-describedby="addon-wrapping" required>
                                     </div>
                                     <div class="input-group flex-nowrap mt-3">
                                         <span class="input-group-text" id="addon-wrapping">Email</span>
                                         <input type="text" class="form-control" placeholder="" aria-label="email" name="email"
-                                            aria-describedby="addon-wrapping">
+                                            aria-describedby="addon-wrapping" required>
                                     </div>
                                 </div>
                                 <h2 class="mt-4">Chọn hình thức nhận hàng</h2>
