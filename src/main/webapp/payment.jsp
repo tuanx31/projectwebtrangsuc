@@ -20,13 +20,13 @@
                                 <h2>Thông tin người mua</h2>
   <% 
                     List<Cart> cartItems = (List<Cart>)session.getAttribute("cart");
-                double totalAmount = 0;
+                long totalAmount = 0;
                 for (Cart cartItem : cartItems) {
                         	double itemTotal = cartItem.getPrice() * cartItem.getAmount();
                             totalAmount += itemTotal; }%>
                                 <div class="formw-inf">
                                     <div class="input-group flex-nowrap">
-                                    	<input type="hidden" name="total" value="<%=(int)totalAmount%>">
+                                    	<input type="hidden" name="total" value="<%=(long)totalAmount%>">
                                         <span class="input-group-text" id="addon-wrapping">Họ Tên</span>
                                         <input type="text" class="form-control" placeholder="" name="name" aria-label="Username"
                                             aria-describedby="addon-wrapping">
@@ -132,7 +132,7 @@
                             <p>Thành tiền: <span><%=(int)cartItem.getPrice()*cartItem.getAmount() %> VND</span></p>
                         </div>
                        <%}} %>
-                       <p class="price">Tổng Tiền <SPAN><%=(int)totalAmount  %> VND</SPAN> </p>>
+                       <p class="price">Tổng Tiền <SPAN><%=(long)totalAmount  %> VND</SPAN> </p>>
                     </div>
 
                 </div>

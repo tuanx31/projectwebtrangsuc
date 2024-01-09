@@ -29,7 +29,7 @@
             <tbody>
                 <% 
                     List<Cart> cartItems = (List<Cart>)session.getAttribute("cart");
-                double totalAmount = 0;
+                long totalAmount = 0;
 
                     if (cartItems != null && !cartItems.isEmpty()) {
                         for (Cart cartItem : cartItems) {
@@ -45,14 +45,14 @@
                                 </td>
                                 <td class="fw-bold dongia"><%=(int)cartItem.getPrice() %> VND</td>
                                 <td>
-                                	<form action="AddtoCartC" method="post">
+                                	<form action="Cart" method="post">
                                 
                                 <input name="productId" value="<%=cartItem.getId()%>" class="d-none">
                                <input class='btn fw-bold fs-5 btn-light' name="subtract" type="submit" value="-">
                                
                                 </form>
                                 <input class='inputNumCart text-center border-0 bg-light' value="<%=cartItem.getAmount() %>" type="text" min="0" disabled />
-                                <form action="AddtoCartC" method="post">
+                                <form action="Cart" method="post">
                                 
                                     <input name="productId" value="<%=cartItem.getId()%>" class="d-none">
                                    <input class='btn fw-bold fs-5 btn-light' name="add" type="submit" value="+">
@@ -61,9 +61,9 @@
                                     
                                     
                                 </td>
-                               <td><%=(int)cartItem.getPrice()*cartItem.getAmount() %></td>
+                               <td><%=(long)cartItem.getPrice()*cartItem.getAmount() %></td>
                                
-                                <td><form action="AddtoCartC" method="post">
+                                <td><form action="Cart" method="post">
                                 
                                 <input name="productId" value="<%=cartItem.getId() %>" class="d-none">
                                 <input type="submit" name="action" class="btn btn-danger" value="delete">
@@ -82,7 +82,7 @@
             </tbody>
         </table>
         <div class="text-end mt-3">
-            <strong>Tổng đơn hàng: <%=(int)totalAmount  %> VND</strong>
+            <strong>Tổng đơn hàng: <%=(long)totalAmount  %> VND</strong>
         </div>
         
         <a href="index.jsp">Tiếp tục mua hàng</a>
