@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 08, 2024 at 04:06 PM
+-- Generation Time: Jan 09, 2024 at 08:38 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -42,6 +42,59 @@ INSERT INTO `category` (`id`, `name`, `desc`, `banner`) VALUES
 (1, 'Đồng hồ', 'Bạn đang tìm kiếm một chiếc đồng hồ không chỉ giúp bạn kiểm soát thời gian một cách chính xác mà còn thể hiện phong cách của bạn? Hãy chào đón Đồng Hồ Thông Minh XYZ - người bạn đồng hành lý tưởng cho cuộc sống đương đại!', 'asesst\\dong-ho-1920x703.jpg'),
 (2, 'Vàng 24k', '', 'asesst/sac-mau-ca-tinh.jpg'),
 (3, 'Nhẫn', '', 'asesst\\14-bnner-tsnt.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order`
+--
+
+CREATE TABLE `order` (
+  `order_id` int(11) NOT NULL,
+  `order_user` int(11) NOT NULL,
+  `order_name` varchar(255) NOT NULL,
+  `order_phone` varchar(255) NOT NULL,
+  `order_email` varchar(255) NOT NULL,
+  `order_total` bigint(20) NOT NULL,
+  `order_address` longtext NOT NULL,
+  `order_note` longtext NOT NULL,
+  `created_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `order`
+--
+
+INSERT INTO `order` (`order_id`, `order_user`, `order_name`, `order_phone`, `order_email`, `order_total`, `order_address`, `order_note`, `created_time`) VALUES
+(6, 15, 'Nguyễn Đình Tuấn', '0824892083', 'nguyendinhtuanx31@gmail.com', 21075000, '1,Xã Cốc Pàng,Huyện Bảo Lạc,Tỉnh Cao Bằng', '1', '2024-01-09 05:17:55'),
+(7, 15, 'Nguyễn Đình Tuấn', '0824892083', 'nguyendinhtuanx31@gmail.com', 899451346, '2,Xã Xuân Lập,Huyện Lâm Bình,Tỉnh Tuyên Quang', '2', '2024-01-09 05:18:15');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_detail`
+--
+
+CREATE TABLE `order_detail` (
+  `order_detail_id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `prod_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `price` int(11) NOT NULL,
+  `payment_name` varchar(255) NOT NULL,
+  `payment_status` varchar(255) NOT NULL,
+  `create_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `order_detail`
+--
+
+INSERT INTO `order_detail` (`order_detail_id`, `order_id`, `prod_id`, `quantity`, `price`, `payment_name`, `payment_status`, `create_time`) VALUES
+(9, 6, 39, 1, 13275000, 'Thanh Toán Khi Nhận Hàng', '', '2024-01-09 05:17:55'),
+(10, 6, 11, 1, 7800000, 'Thanh Toán Khi Nhận Hàng', '', '2024-01-09 05:17:55'),
+(11, 7, 8, 1, 895899346, 'Thanh Toán Khi Nhận Hàng', '', '2024-01-09 05:18:15'),
+(12, 7, 2, 1, 3552000, 'Thanh Toán Khi Nhận Hàng', '', '2024-01-09 05:18:15');
 
 -- --------------------------------------------------------
 
@@ -93,14 +146,10 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `role`, `time_created_at`) VALUES
 (1, 'admin', 'anhdepzai', '123456', 1, '2024-01-06 18:52:27'),
 (2, 'tuan', 'tuan', 'TUan3132004', 1, '2024-01-06 18:53:56'),
-(5, 'anhdz', 'anh@gmail.com', '123', 0, '2024-01-06 21:08:28'),
-(6, 'adminz', 'leducanh@gmail.com', '12345678', 0, '2024-01-06 22:47:25'),
-(7, 'anhle', 'anhhz@gmail.com', '12345678', 0, '2024-01-06 22:50:56'),
-(8, 'anhdzvip', '1@gmail.com', 'leducanhx7', 0, '2024-01-06 23:03:04'),
-(9, 'anhdex', '12345678', 'le@gmail.com', 0, '2024-01-06 23:03:59'),
-(10, 'adminnn', '12345678', 'anhzz@gmail.com', 0, '2024-01-06 23:07:18'),
-(11, 'tuan1', 'tuan3132004', 'nguyendinhtuanx31@gmail.com', 0, '2024-01-07 14:15:26'),
-(13, 'admin1', '1', '22', 1, '2024-01-08 20:17:05');
+(5, '1', '1', '1', 1, '2024-01-06 21:08:28'),
+(6, '0', '0', '0', 0, '2024-01-06 22:47:25'),
+(14, 'nguyen', 'tuan3132004', 'nguyendinhtuanx31@gmail.com', 0, '2024-01-09 09:58:41'),
+(15, '3', '3', '3', 0, '2024-01-09 11:47:51');
 
 --
 -- Indexes for dumped tables
@@ -111,6 +160,21 @@ INSERT INTO `user` (`id`, `username`, `password`, `email`, `role`, `time_created
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `order`
+--
+ALTER TABLE `order`
+  ADD PRIMARY KEY (`order_id`),
+  ADD KEY `order_user` (`order_user`);
+
+--
+-- Indexes for table `order_detail`
+--
+ALTER TABLE `order_detail`
+  ADD PRIMARY KEY (`order_detail_id`),
+  ADD KEY `order_id` (`order_id`),
+  ADD KEY `tbl_order_detail_ibfk_2` (`prod_id`);
 
 --
 -- Indexes for table `product`
@@ -136,6 +200,18 @@ ALTER TABLE `category`
   MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT for table `order`
+--
+ALTER TABLE `order`
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `order_detail`
+--
+ALTER TABLE `order_detail`
+  MODIFY `order_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
@@ -145,11 +221,24 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `order`
+--
+ALTER TABLE `order`
+  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`order_user`) REFERENCES `user` (`id`);
+
+--
+-- Constraints for table `order_detail`
+--
+ALTER TABLE `order_detail`
+  ADD CONSTRAINT `order_detail_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `order_detail_ibfk_2` FOREIGN KEY (`prod_id`) REFERENCES `product` (`id`);
 
 --
 -- Constraints for table `product`
