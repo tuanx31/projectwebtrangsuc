@@ -21,12 +21,12 @@
                         <div class="col-7">
                             <h4 class="text-upercase">${pr.name }</h4>
                             <hr>
-                            <span class="text-decoration-line-through" id="price">${pr.price } VND</span>
+                            <span class="text-decoration-line-through" id="pricee">${pr.price }</span>
                             <br>
                             <%Product product=(Product) request.getAttribute("pr"); int prices=product.getPrice()
                                 -product.getPrice() * product.getSale_of() /100; %>
-                                <span class="text-danger fs-4 fw-bold" id="price_sale">
-                                    <%=prices %> VND
+                                <span class="text-danger fs-4 fw-bold" id="price_salee">
+                                    <%=prices %>
                                 </span>
                                 <br>
                                 <a class="btn" data-bs-toggle="collapse" href="#collapseExample" role="button"

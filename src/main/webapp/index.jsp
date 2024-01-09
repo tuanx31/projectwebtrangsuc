@@ -1,5 +1,8 @@
+<%@page import="java.util.Locale"%>
+<%@page import="java.text.NumberFormat"%>
 <%@page import="model.Product"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
     <!DOCTYPE html>
     <html>
     <head>
@@ -48,6 +51,7 @@
                 <div class="row">
 
                     <% List<Product> np = new Dao().getNewProduct();
+                    NumberFormat numberFormat = NumberFormat.getNumberInstance(new Locale("vi", "VN"));
 
                             for(Product s:np){%>
                             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6">
@@ -63,10 +67,10 @@
                                         </h5>
                                         <p class="card-text text-center text-dark text-decoration-line-through price"
                                             style="margin-bottom : 0px;" id="price" >
-                                            <%=s.getPrice()%>
+                                            <%=numberFormat.format(s.getPrice())%>VND
                                         </p>
                                         <p class="card-text text-center text-danger price" id="price_sale" >
-                                            <%=s.getPrice()-s.getSale_of()*s.getPrice() /100 %> VND
+                                            <%=numberFormat.format(s.getPrice()-s.getSale_of()*s.getPrice() /100 )%> VND
                                         </p>
                                     </div>
                                 </a>

@@ -1,3 +1,5 @@
+<%@page import="java.util.Locale"%>
+<%@page import="java.text.NumberFormat"%>
 <%@page import="model.Category" %>
     <%@page import="dao.Dao" %>
         <%@page import="model.Product" %>
@@ -39,6 +41,7 @@
                                                     <option value="1" selected>Chọn Loại Sản Phẩm</option>
 
                                                     <% List<Category> cas = new Dao().getAllCategory();
+                                                    		NumberFormat numberFormat = NumberFormat.getNumberInstance(new Locale("vi", "VN"));
                                                         for(Category s:cas){%>
                                                         <option value="<%=s.getId()%>">
                                                             <%=s.getName()%>
@@ -94,7 +97,7 @@
                                                                             <%= s.getName() %>
                                                                         </td>
                                                                         <td>
-                                                                            <%= s.getPrice() %>
+                                                                            <%= numberFormat.format(s.getPrice()) %> VND
                                                                         </td>
                                                                         <td>
                                                                         

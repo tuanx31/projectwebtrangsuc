@@ -1,3 +1,5 @@
+<%@page import="java.util.Locale"%>
+<%@page import="java.text.NumberFormat"%>
 <%@page import="model.Cart"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
@@ -29,6 +31,8 @@
             <tbody>
                 <% 
                     List<Cart> cartItems = (List<Cart>)session.getAttribute("cart");
+                NumberFormat numberFormat = NumberFormat.getNumberInstance(new Locale("vi", "VN"));
+
                 long totalAmount = 0;
 
                     if (cartItems != null && !cartItems.isEmpty()) {
@@ -43,7 +47,7 @@
                                 <td class="text-muted fw-normal">
                                     <p class='mt-1'><%=cartItem.getName()%></p>
                                 </td>
-                                <td class="fw-bold dongia price"><%=(int)cartItem.getPrice() %> VND</td>
+                                <td class="fw-bold dongia price"><%=numberFormat.format((int)cartItem.getPrice()) %> VND</td>
                                 <td>
                                 <div class="d-flex justify-content-center">
                                 	<form action="Cart" method="post">
@@ -62,7 +66,7 @@
                                     </div>
                                     
                                 </td>
-                               <td><%=(long)cartItem.getPrice()*cartItem.getAmount() %></td>
+                               <td><%=numberFormat.format((long)cartItem.getPrice()*cartItem.getAmount()) %> VND</td>
                                
                                 <td><form action="Cart" method="post">
                                 
@@ -83,7 +87,7 @@
             </tbody>
         </table>
         <div class="text-end mt-3">
-            <strong>Tổng đơn hàng: <%=(long)totalAmount  %> VND</strong>
+            <strong>Tổng đơn hàng: <%=numberFormat.format((long)totalAmount)  %> VND</strong>
         </div>
         
         <a href="index.jsp">Tiếp tục mua hàng</a>

@@ -47,13 +47,13 @@
             </div>
         </div>
     </body>
-    <!-- <script type="text/javascript">
+	<script type="text/javascript">
 
-        var price = Number(document.getElementById("price").innerHTML);
-        document.getElementById("price").innerHTML = price.toLocaleString() + " VND";
-        var price_sale = Number(document.getElementById("price_sale").innerHTML);
-        document.getElementById("price_sale").innerHTML = price_sale.toLocaleString() + " VND";
+        var price = Number(document.getElementById("pricee").innerHTML);
+        document.getElementById("pricee").innerHTML = price.toLocaleString() + " VND";
+        var price_sale = Number(document.getElementById("price_salee").innerHTML);
+        document.getElementById("price_salee").innerHTML = price_sale.toLocaleString() + " VND";
 
-    </script> -->
+    </script> 
 
     </html>
