@@ -45,6 +45,7 @@
                                 </td>
                                 <td class="fw-bold dongia"><%=(int)cartItem.getPrice() %> VND</td>
                                 <td>
+                                <div class="d-flex justify-content-center">
                                 	<form action="Cart" method="post">
                                 
                                 <input name="productId" value="<%=cartItem.getId()%>" class="d-none">
@@ -58,7 +59,7 @@
                                    <input class='btn fw-bold fs-5 btn-light' name="add" type="submit" value="+">
                                    
                                     </form>
-                                    
+                                    </div>
                                     
                                 </td>
                                <td><%=(long)cartItem.getPrice()*cartItem.getAmount() %></td>

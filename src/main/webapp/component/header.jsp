@@ -30,9 +30,7 @@
                             	<a href="#" class="text-dark text-decoration-none ">
                                 <i class="fa-regular fa-user text-danger"></i>${username}</a>
                                 <ul class="menu-account">
-                            	
-                                <li><a href="account">Quản lí tài Khoản</a></li>
-                                <li><a href="cart">Quản lí Đơn Hàng</a></li>
+                                <li><a href="managerorder">Quản lí Đơn Hàng</a></li>
                               
                                 <form action="logout" method="POST"><li><button type="submit" class="btn">Đăng Xuất</button></form>
                               

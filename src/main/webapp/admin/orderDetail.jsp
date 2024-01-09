@@ -1,5 +1,6 @@
 
-        <%@page import="model.Product"%>
+        <%@page import="model.OrderDetail"%>
+<%@page import="model.Product"%>
 <%@page import="dao.Dao"%>
 <%@page import="model.Category"%>
 
@@ -10,7 +11,7 @@
 
                 <head>
                     <meta charset="UTF-8">
-                    <title>Insert title here</title>
+                    <title>Chi tiết đơn hàng </title>
                 </head>
 
                 <body>
@@ -32,7 +33,6 @@
                                                                 <th>Đơn giá</th>
                                                                 <th>Số lượng</th>
                                                                 <th>Tổng tiền</th>
-                                                                <th>Action</th>
                                                             </tr>
                                                         </thead>
                                                         <tfoot>
@@ -42,47 +42,31 @@
                                                                 <th>Đơn giá</th>
                                                                 <th>Số lượng</th>
                                                                 <th>Tổng tiền</th>
-                                                                <th>Action</th>
                                                             </tr>
                                                         </tfoot>
                                                         <tbody>
-                                                            <% List<Product> listproduct = (List<Product>
-                                                                    )request.getAttribute("listproduct");
-                                                                    for(Product s:listproduct){%>
+                                                            <% List<OrderDetail> listproduct = (List<OrderDetail>
+                                                                    )request.getAttribute("listod");
+                                                                    for(OrderDetail s:listproduct){
+                                                                    Product p =new Dao().getProuductById(Integer.toString(s.getIdp()));
+                                                                    %>
                                                                     <tr>
-                                                                        <td><img src="<%= s.getImg() %>"
+                                                                        <td><img src="<%= p.getImg() %>"
                                                                                 style="width: 100px;height: auto" />
                                                                         </td>
                                                                         <td>
-                                                                            <%= s.getName() %>
+                                                                            <%= p.getName() %>
                                                                         </td>
                                                                         <td>
-                                                                            <%= s.getPrice() %>
+                                                                            <%= s.getPrice() %>VND
                                                                         </td>
                                                                         <td>
                                                                         
-                                                                            <%= s.getSale_of() %>
-                                                                        </td>
-                                                                        <%Category loaisp = new Dao().getCategoryById(Integer.toString(s.getIdCategory()));%>
-                                                                        <td>
-                                                                            <%= loaisp.getName()%>
+                                                                            <%= s.getQuantity() %>
                                                                         </td>
                                                                         <td>
-                                                                                <a href="editProduct?id=<%= s.getId()%>" class="btn btn-warning"
-                                                                                    >Sửa</a>
-                                                                            <form action="adminproduct" method="post">
-                                                                                <input type="text" name="action"
-                                                                                    id="action" value="delete"
-                                                                                    style="display: none" />
-                                                                                <input type="text" name="idp" id="idp"
-                                                                                    value="<%= s.getId() %>"
-                                                                                    style="display: none" />
-                                                                                <button class="btn btn-danger"
-                                                                                    type="submit">Xóa</button>
-                                                                            </form>
-
+                                                                            <%= s.getPrice()*s.getQuantity()%> VND
                                                                         </td>
-
                                                                     </tr>
                                                                     <%}%>
                                                         </tbody>

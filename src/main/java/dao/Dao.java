@@ -591,7 +591,95 @@ public class Dao {
 	    }
 	    return p;
 	  }
+  public List<Order> getAllOrder() {
+	    List<Order> list = new ArrayList<>();
+	    String query = "SELECT * FROM `order`";
+	    System.out.println(query);
+	    try {
+	      conn = new dbConText().getConnection();
+	      ps = conn.prepareStatement(query);
+	      rs = ps.executeQuery();
+	      while (rs.next()) {
+	        Order ca = new Order(
+	          rs.getInt("order_id"),
+	          rs.getInt("order_user"),
+	          rs.getString("order_name"),
+	          rs.getString("order_phone"),
+	          rs.getString("order_address"),
+	          rs.getString("order_email"),
+	          rs.getLong("order_total"),
+	          rs.getString("order_note")
+	        );
+	        list.add(ca);
+	      }
+	      conn.close();
+	    } catch (Exception e) {
+	      // TODO: handle exception
+	    }
+	    return list;
+	  }
+  public List<Order> getOrderbyuser(String id) {
+	    List<Order> list = new ArrayList<>();
+	    String query = "SELECT * FROM `order` where`order`.`order_user` ="+id;
+	    System.out.println(query);
+	    try {
+	      conn = new dbConText().getConnection();
+	      ps = conn.prepareStatement(query);
+	      rs = ps.executeQuery();
+	      while (rs.next()) {
+	        Order ca = new Order(
+	          rs.getInt("order_id"),
+	          rs.getInt("order_user"),
+	          rs.getString("order_name"),
+	          rs.getString("order_phone"),
+	          rs.getString("order_address"),
+	          rs.getString("order_email"),
+	          rs.getLong("order_total"),
+	          rs.getString("order_note")
+	        );
+	        list.add(ca);
+	      }
+	      conn.close();
+	    } catch (Exception e) {
+	      // TODO: handle exception
+	    }
+
+	    return list;
+	  }
   
+  public List<OrderDetail> getOrderDetailByIdo(String id) {
+	  	List<OrderDetail> list = new ArrayList<>();
+	    String query = "SELECT * FROM `order_detail` WHERE `order_id` = " + id;
+	    try {
+	      //System.out.println(query);
+	      conn = new dbConText().getConnection();
+	      ps = conn.prepareStatement(query);
+	      rs = ps.executeQuery();
+	      while (rs.next()) {
+	    	  OrderDetail tpm = new OrderDetail(rs.getInt("order_detail_id"), rs.getInt("order_id"),  rs.getInt("prod_id"),  rs.getInt("quantity"),  rs.getInt("price"), "", "");
+	    	  list.add(tpm);
+	      }
+	    } catch (Exception e) {
+	      // TODO: handle exception
+	    }
+	    return list;
+	  }
+  public void deleteOrder(String id) {
+	    String query = "DELETE FROM `order` WHERE `order`.`order_id` = " + id;
+	    System.out.println(query);
+	    try (
+	      Connection conn = new dbConText().getConnection();
+	      PreparedStatement ps = conn.prepareStatement(query)
+	    ) {
+	      // Use executeUpdate for INSERT queries
+	      int rowsAffected = ps.executeUpdate();
+
+	      // Check the number of rows affected if needed
+	      System.out.println(rowsAffected + " row(s) affected");
+	    } catch (Exception e) {
+	      System.out.println("Error executing query: " + e.getMessage());
+	    }
+	  }
 //  public static void main(String[] args) {
 //    List<account> listCategory = new Dao().getAllUser();
 //      System.out.println(listCategory.size());

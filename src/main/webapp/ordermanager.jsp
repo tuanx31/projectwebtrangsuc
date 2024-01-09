@@ -1,3 +1,6 @@
+<%@page import="model.OrderDetail"%>
+<%@page import="model.Product"%>
+<%@page import="model.Order"%>
 <%@page import="model.Cart"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <!DOCTYPE html>
@@ -5,14 +8,25 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>Insert title here</title>
+        <title>Quản lý đơn hàng</title>
     </head>
 
     <body>
         <%@include file="component/header.jsp" %>
             <div class="container">
                 <h3 class="text-center fw-bold text-uppercase">Đơn hàng đã đặt</h3>
-                <table class="table">
+                         <% List<Order> listo = (List<Order>)request.getAttribute("listorder");
+                                if (listo != null && !listo.isEmpty()) {
+                                for (Order Itemo : listo) {
+                                	List<OrderDetail> listod = new Dao().getOrderDetailByIdo(Integer.toString(Itemo.getId()));
+                                	
+                                	%>
+                              	<p>Tên khách hàng : <%=Itemo.getName() %></p>
+                              	 <p>Số điện thoại : <%=Itemo.getPhone() %></p>
+                              	 <p>Email : <%=Itemo.getEmail() %></p>
+                              	 <p>Địa chỉ giao : <%=Itemo.getAddRess() %></p>
+                              	 <p>Tổng : <%=Itemo.getTotal() %> VND</p> 
+                                                <table class="table mb-3">
                     <thead>
                         <tr class="text-center">
                             <th scope="col" class="text-muted fw-normal">Hình ảnh</th>
@@ -22,38 +36,36 @@
                             <th scope="col" class="text-muted fw-normal">Tổng giá</th>
                         </tr>
                     </thead>
+                              <%for (OrderDetail odt : listod){ 
+                            	  Product p =new Dao().getProuductById(Integer.toString(odt.getIdp()));
+                                  
+                              %>
+
                     <tbody>
-                        <% List<Cart> cartItems = (List<Cart>)session.getAttribute("cart");
-                                double totalAmount = 0;
 
-                                if (cartItems != null && !cartItems.isEmpty()) {
-                                for (Cart cartItem : cartItems) {
-                                double itemTotal = cartItem.getPrice() * cartItem.getAmount();
-                                totalAmount += itemTotal;
-
-                                %>
                                 <tr class="text-center desktopItemCart" style="vertical-align: middle;">
-                                    <td scope="row"><img src="<%=cartItem.getUrlImg() %>" alt="hình ảnh"
+                                    <td scope="row"><img src="<%=p.getImg() %>" alt="hình ảnh"
                                             style="width: 120px; height: 120px;" /></td>
                                     <td class="text-muted fw-normal">
                                         <p class='mt-1'>
-                                            <%=cartItem.getName()%>
+                                            <%=p.getName()%>
                                         </p>
                                     </td>
                                     <td class="fw-bold dongia">
-                                        <%=(int)cartItem.getPrice() %> VND
+                                        <%=(int)odt.getPrice() %> VND
                                     </td>
                                     <td>
                                         <div class="d-flex justify-content-center">
                                             <input class='inputNumCart text-center border-0 bg-light'
-                                                value="<%=cartItem.getAmount() %>" type="text" min="0" disabled />
+                                                value="<%=odt.getQuantity() %>" type="text" min="0" disabled />
                                         </div>
                                     </td>
                                     <td>
-                                        <%=(int)cartItem.getPrice()*cartItem.getAmount() %>
+                                        <%=(int)odt.getPrice()*odt.getQuantity() %> VND
                                     </td>
                                 </tr>
-                                <% } } %>
+                                
+                                <% } }} %>
                     </tbody>
                 </table>
             </div>
