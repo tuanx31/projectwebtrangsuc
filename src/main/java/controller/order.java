@@ -88,6 +88,7 @@ public class order extends HttpServlet {
         	
         }
         session.removeAttribute("cart");
+        response.sendRedirect("managerorder");
 	}
 	
 
