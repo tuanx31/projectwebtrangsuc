@@ -79,13 +79,13 @@
                                                     Trả tiền mặt khi nhận hàng (COD)
                                                 </label>
                                             </div>
-                                            <div class="w100">
+                                            <!-- <div class="w100">
                                                 <input type="radio" id="payment_method_bacs" name="payment_method"
                                                     value="Bank" required>
                                                 <label for="payment_method_bacs" class="ml15 color-default fw-bold">
                                                     Chuyển khoản ngân hàng
                                                 </label>
-                                            </div>
+                                            </div> -->
                                         </li>
                                     </ul>
 

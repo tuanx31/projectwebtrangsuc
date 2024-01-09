@@ -53,7 +53,7 @@ public class AddtoCart extends HttpServlet {
 	      
 	        
 	        String action = request.getParameter("action");
-	        if ("delete".equals(action)) {
+	        if ("Xóa".equals(action)) {
 	           
 	            String productId = request.getParameter("productId");
 	            

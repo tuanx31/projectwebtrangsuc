@@ -18,7 +18,7 @@
                     </div>
                     <div class="hl-tft">
                         <p class="lazyed"><i class="fa-solid fa-phone text-danger"></i>hotline:<a class="text-dark"
-                                href="tel:18001168" title="18001168"> 18001168</a></p>
+                                href="tel:18001168" title="18001168"> 0392322055</a></p>
                     </div>
                     <div class="htpp-tft lazyed"><a class="text-dark" href="#" title="Hệ thống phân phối"><i
                                 class="fa-regular fa-building text-danger"></i> Hệ thống phân
@@ -28,8 +28,8 @@
                     <div class="address">
                         <h5 class="text-danger">LIÊN HỆ</h5>
                         <p>Tập đoàn VBĐQ DOJI</p>
-                        <p>Địa chỉ: Tòa nhà DOJI Tower, Số 5 Lê Duẩn,</p>
-                        <p>Ba Đình, Hà Nội</p>
+                        <p>Địa chỉ: 182 Lê Duẩn, Bến Thủy, </p>
+                        <p>Thành phố Vinh, Nghệ An</p>
                     </div>
                     <div class="for-me">
                         <h5 class="text-danger">VỀ CHÚNG TÔI</h5>
@@ -47,5 +47,13 @@
             </div>
         </div>
     </body>
+    <!-- <script type="text/javascript">
+
+        var price = Number(document.getElementById("price").innerHTML);
+        document.getElementById("price").innerHTML = price.toLocaleString() + " VND";
+        var price_sale = Number(document.getElementById("price_sale").innerHTML);
+        document.getElementById("price_sale").innerHTML = price_sale.toLocaleString() + " VND";
+
+    </script> -->
 
     </html>

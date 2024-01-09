@@ -43,7 +43,7 @@
                                 <td class="text-muted fw-normal">
                                     <p class='mt-1'><%=cartItem.getName()%></p>
                                 </td>
-                                <td class="fw-bold dongia"><%=(int)cartItem.getPrice() %> VND</td>
+                                <td class="fw-bold dongia price"><%=(int)cartItem.getPrice() %> VND</td>
                                 <td>
                                 <div class="d-flex justify-content-center">
                                 	<form action="Cart" method="post">
@@ -67,7 +67,7 @@
                                 <td><form action="Cart" method="post">
                                 
                                 <input name="productId" value="<%=cartItem.getId() %>" class="d-none">
-                                <input type="submit" name="action" class="btn btn-danger" value="delete">
+                                <input type="submit" name="action" class="btn btn-danger" value="Xóa">
                                </form></td>
                             </tr>
                 <%

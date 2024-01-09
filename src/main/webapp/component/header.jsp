@@ -19,9 +19,9 @@
                     <div class="hd-top-l">
                         <a href="#" class="text-dark text-decoration-none me-2"><i
                                 class="fa-regular fa-building text-danger"></i> Về
-                            trang sức toji</a>
+                            trang sức Toji</a>
                         <a href="" class="text-dark text-decoration-none "><i
-                                class="fa-solid fa-phone text-danger"></i>01234456</a>
+                                class="fa-solid fa-phone text-danger"></i> 0392322055</a>
                     </div>
                     <div class="hd-top-r">
                         <div style="display: inline-block; " class="acount">
@@ -126,5 +126,5 @@
             </div>
         </div>
     </body>
-
+		
     </html>

@@ -19,7 +19,7 @@
                                     <main>
 
                                         <div class="container-fluid px-4">
-                                            <h1 class="mt-4">Quản lý User</h1>
+                                            <h1 class="mt-4">Quản lý người dùng</h1>
                                             <form class="d-flex w-50 mb-3 gap-1 flex-column" action="adminuser"
                                                 method="post" >
                                                 <span>Username</span>

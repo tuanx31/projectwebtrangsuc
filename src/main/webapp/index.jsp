@@ -61,11 +61,11 @@
                                         <h5 class="card-title text-center text-dark">
                                             <%=s.getName()%>
                                         </h5>
-                                        <p class="card-text text-center text-dark text-decoration-line-through"
-                                            style="margin-bottom : 0px;">
-                                            <%=s.getPrice()%> VND
+                                        <p class="card-text text-center text-dark text-decoration-line-through price"
+                                            style="margin-bottom : 0px;" id="price" >
+                                            <%=s.getPrice()%>
                                         </p>
-                                        <p class="card-text text-center text-danger">
+                                        <p class="card-text text-center text-danger price" id="price_sale" >
                                             <%=s.getPrice()-s.getSale_of()*s.getPrice() /100 %> VND
                                         </p>
                                     </div>
