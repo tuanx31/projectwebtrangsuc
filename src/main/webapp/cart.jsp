@@ -87,7 +87,9 @@
         </div>
         
         <a href="index.jsp">Tiếp tục mua hàng</a>
-        <a href="<% if(username != null){ %>order<%} else { %>login <%} %>" class="btn btn-primary" style="float :right">Thanh Toán </a>
+       
+                <a href="<% if(username != null){ %>order<%} else { %>login <%} %>" class="btn btn-primary" style="float :right">Thanh Toán </a>
+       
     </div>
 </body>
 

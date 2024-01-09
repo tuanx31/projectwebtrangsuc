@@ -1,6 +1,7 @@
 .top-footer {
     text-align: center;
     position: relative;
+    min-height:50px;
 }
 
 .top-footer .logo-tft a {
@@ -32,5 +33,16 @@ a {
 @media only screen and (max-width: 600px) {
     .logo-tft {
         display: none !important;
+    }
+    .contact-detail{
+    flex-direction: column;
+    
+    text-align: center;}
+    .for-me{
+    margin-top:20px;
+    }
+    .service{
+    
+    margin-top:20px;
     }
 }

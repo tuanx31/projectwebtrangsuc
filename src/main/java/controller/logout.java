@@ -14,19 +14,15 @@ import java.io.IOException;
 @WebServlet("/logoutvv")
 public class logout extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-RequestDispatcher dispathcher = request.getRequestDispatcher("index.jsp");
-		
-		dispathcher.forward(request, response);
-    }
-    
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	HttpSession session = request.getSession(false);
     	
         if (session != null) {
         	session.removeAttribute("username");
         }
 
-        // Redirect to the login page or any other page
+        
         response.sendRedirect("index.jsp");
-}
+    }
+    
+    
 }

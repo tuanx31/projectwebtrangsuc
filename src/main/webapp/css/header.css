@@ -90,13 +90,13 @@ ul li a {
     display: none;
     z-index: 99;
     transition: 0.3s;
-    top: 180px;
+   
     left: 0;
     box-shadow: 0 8px 12px #e0e0e0 inset;
 }
 
 .sub-content{
-    width: 1300px;
+   
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -143,6 +143,9 @@ ul li a {
 .card {
     position: relative;
 }
+.card-title{
+	min-height:48px;
+}
 
 .sale_of {
     top: 5px;
@@ -158,5 +161,8 @@ ul li a {
     .fsearch{
     position: relative !important;
     width: 100% !important;;
+    }
+    .fsearch input{
+    width:90%;
     }
 }

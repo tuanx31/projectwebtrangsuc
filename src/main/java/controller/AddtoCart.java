@@ -122,17 +122,19 @@ public class AddtoCart extends HttpServlet {
 
 	       
 	    }
-	private void removeProductFromCart(String productId, HttpServletRequest request) {
+	private void removeProductFromCart(String productId, HttpServletRequest request)  {
         HttpSession session = request.getSession();
         List<Cart> cart = (List<Cart>) session.getAttribute("cart");
 
         if (cart != null) {
-            // Iterate through the cart to find and remove the product with the specified ID
+            
             for (Iterator<Cart> iterator = cart.iterator(); iterator.hasNext();) {
                 Cart cartItem = iterator.next();
                 if (String.valueOf(cartItem.getId()).equals(productId)) {
                     iterator.remove();
-                    break; // Stop iterating once the product is removed
+                    
+                    
+                    break; 
                 }
             }
         }

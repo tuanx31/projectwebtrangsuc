@@ -30,9 +30,9 @@
                             	<a href="#" class="text-dark text-decoration-none ">
                                 <i class="fa-regular fa-user text-danger"></i>${username}</a>
                                 <ul class="menu-account">
-                                <li><a href="managerorder">Quản lí Đơn Hàng</a></li>
+                                <li><a href="managerorder" class="btn">Quản lí Đơn Hàng</a></li>
                               
-                                <form action="logout" method="POST"><li><button type="submit" class="btn">Đăng Xuất</button></form>
+                                <li><a href="logout" class="btn">Đăng Xuất</a>
                               
                               
                             </ul>
@@ -41,8 +41,8 @@
                                 <i class="fa-regular fa-user text-danger"></i>Tài khoản</a>
                             <ul class="menu-account">
                             	
-                                <li><a href="login">Đăng nhập</a></li>
-                                <li><a href="register">Đăng ký</a></li>
+                                <li><a href="login" class="btn">Đăng nhập</a></li>
+                                <li><a href="register" class="btn">Đăng ký </a></li>
                               
                             </ul>
                               <% } %>
@@ -69,7 +69,7 @@
                 <ul>
                     <li><a href="">Bộ Sưu Tập</a>
                         <ul class="sub-menu">
-                            <div class="sub-content">
+                            <div class="sub-content container">
                                 <div class="sub-left">
                                     							<% 
                                 List<Category> pas = new Dao().getAllCategory();
@@ -85,7 +85,7 @@
                             </div>
                         </ul>
                     </li>
-                    <li><a href="">Kim CƯơng Viên</a>
+                    <!-- <li><a href="">Kim CƯơng Viên</a>
                     	 <ul class="sub-menu">
                             <div class="sub-content">
                                 <div class="sub-left">
@@ -115,7 +115,7 @@
                                 </div>
                             </div>
                         </ul>
-                    </li>
+                    </li> -->
 							<% List<Category> pa = new Dao().getAllCategory();
                                     for(Category s:pa){%>
                                     <li><a href="product?id=<%=s.getId()%>">

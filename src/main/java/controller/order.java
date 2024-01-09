@@ -28,13 +28,19 @@ public class order extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		List<Cart> cart = (List<Cart>) session.getAttribute("cart");
+		
 		String username = (String)session.getAttribute("username");
-        if (cart != null && username != null) {
-			response.sendRedirect("payment.jsp");
-		}else {
-			RequestDispatcher dispath = request.getRequestDispatcher("index.jsp");
-			dispath.forward(request, response);
-		}
+        if(cart != null) {
+        	if (cart.size() > 0 && username != null) {
+    			response.sendRedirect("payment.jsp");
+    		}else {
+    			response.sendRedirect("index.jsp");
+    		}
+    			
+    		
+        }else {
+			response.sendRedirect("index.jsp");
+        }
 	}
 
 	/**

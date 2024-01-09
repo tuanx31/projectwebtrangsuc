@@ -13,7 +13,7 @@
 <body>
 	<div id="wrapper">
         <div id="header">
-            <a class="name" href="/">
+            <a class="name" href="index.jsp">
                 <font color=#FFD700>
                     <img src="http://localhost:8080/projectwebtrangsuc/asesst/logo-t.png" alt="">
                 </font>

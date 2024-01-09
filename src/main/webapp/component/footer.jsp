@@ -24,20 +24,20 @@
                                 class="fa-regular fa-building text-danger"></i> Hệ thống phân
                             phối</a></div>
                 </div>
-                <div class="mt-2 d-flex justify-content-between">
-                    <div class="">
+                <div class="mt-2 d-flex justify-content-between contact-detail">
+                    <div class="address">
                         <h5 class="text-danger">LIÊN HỆ</h5>
                         <p>Tập đoàn VBĐQ DOJI</p>
                         <p>Địa chỉ: Tòa nhà DOJI Tower, Số 5 Lê Duẩn,</p>
                         <p>Ba Đình, Hà Nội</p>
                     </div>
-                    <div class="    ">
+                    <div class="for-me">
                         <h5 class="text-danger">VỀ CHÚNG TÔI</h5>
                         <p>Về trang sức DOJI</p>
                         <p>Dịch vụ khách hàng</p>
                         <p>Kinh doanh bán sỉ</p>
                     </div>
-                    <div class="">
+                    <div class="service">
                         <h5 class="text-danger">DỊCH VỤ KHÁCH HÀNG</h5>
                         <p>Hướng dẫn đặt hàng</p>
                         <p>Phương thức thanh toán</p>
