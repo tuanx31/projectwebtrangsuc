@@ -111,7 +111,7 @@ public class AddtoCart extends HttpServlet {
 
 	        for (Cart item : cart) {
 	        	if(item.getAmount()==1) {
-	        		break;
+	        		item.setAmount(item.getAmount() - 0);
 	        	}else if
 	            (item.getId() == ipd) {
 	                item.setAmount(item.getAmount() - 1);

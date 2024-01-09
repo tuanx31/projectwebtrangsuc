@@ -42,8 +42,8 @@
                                     Vui lòng gọi 1800 1168 để được hỗ trợ.</p>
                                 <hr>
                                 <form action="AddtoCart?idp=${pr.id}" method="POST">
-                                    <span>Số lượng :</span> <input type="number" name="number" style="width: 50px;"
-                                        value="1">
+                                    <span>Số lượng :</span> <input min="1" type="number" name="number"
+                                        style="width: 50px;" value="1">
                                     <hr>
                                     <div class="w-100 mt-3">
 
