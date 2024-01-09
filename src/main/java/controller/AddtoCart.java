@@ -17,13 +17,16 @@ import java.util.List;
 
 import dao.Dao;
 
-@WebServlet(urlPatterns = "/AddtoCartC")
+@WebServlet(urlPatterns = "/Cart")
 public class AddtoCart extends HttpServlet {
 	
 	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect("index.jsp");
+		
+		response.sendRedirect("cart.jsp");
+	
+		
 	}
 
 	

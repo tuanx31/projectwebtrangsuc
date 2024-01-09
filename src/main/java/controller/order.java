@@ -45,7 +45,7 @@ public class order extends HttpServlet {
         String selectedWard = request.getParameter("ward");
         String house = request.getParameter("house");
         
-        int totalAmount = Integer.parseInt(total);
+        long totalAmount = Long.parseLong(total);
         
 
         String address = house+","+selectedWard + "," + selectedDistrict +","+ selectedCity;

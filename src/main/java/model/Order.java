@@ -7,8 +7,10 @@ public class Order {
 	private String phone;
 	private String addRess;
 	private String email;
-	private int total;
+	private long total;
 	private String note;
+	
+	
 	
 	public int getId() {
 		return id;
@@ -46,10 +48,10 @@ public class Order {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getTotal() {
+	public long getTotal() {
 		return total;
 	}
-	public void setTotal(int total) {
+	public void setTotal(long total) {
 		this.total = total;
 	}
 	public String getNote() {
@@ -58,7 +60,7 @@ public class Order {
 	public void setNote(String note) {
 		this.note = note;
 	}
-	public Order(int id, int userId, String name, String phone, String addRess, String email, int total, String note) {
+	public Order(int id, int userId, String name, String phone, String addRess, String email, long total, String note) {
 		super();
 		this.id = id;
 		this.userId = userId;
