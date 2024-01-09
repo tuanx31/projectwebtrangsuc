@@ -680,6 +680,24 @@ public class Dao {
 	      System.out.println("Error executing query: " + e.getMessage());
 	    }
 	  }
+  public int CountUser(String table,String id) {
+	    String query = "SELECT COUNT("+id+") as coun From " + table;
+	    System.out.println(query);
+	    int count = 0;
+	    try {
+	    	
+		      //System.out.println(query);
+		      conn = new dbConText().getConnection();
+		      ps = conn.prepareStatement(query);
+		      rs = ps.executeQuery();
+		      while (rs.next()) {
+		    	  count = rs.getInt("coun");
+		      }
+		    } catch (Exception e) {
+		      // TODO: handle exception
+		    }
+		    return count; 
+	  }
 //  public static void main(String[] args) {
 //    List<account> listCategory = new Dao().getAllUser();
 //      System.out.println(listCategory.size());
