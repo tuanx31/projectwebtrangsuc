@@ -10,8 +10,6 @@ public class Order {
 	private long total;
 	private String note;
 	
-	
-	
 	public int getId() {
 		return id;
 	}

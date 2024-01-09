@@ -11,9 +11,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import model.Order;
-@WebServlet(urlPatterns = "/orderAdmin")
-public class adminOrder extends HttpServlet{
+import model.OrderDetail;
+@WebServlet(urlPatterns = "/orderdetailAdmin")
+public class adminOderdetail extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession();
@@ -21,19 +21,10 @@ public class adminOrder extends HttpServlet{
         if (new Dao().getUserByUsername(username).getRole() != 1) {
 			resp.sendRedirect("index.jsp");
 		}else {
-		    List<Order> list = new Dao().getAllOrder();
-		    req.setAttribute("list", list);
-		RequestDispatcher dispath = req.getRequestDispatcher("admin/orderAdmin.jsp");
+			String id = req.getParameter("id");
+		    List<OrderDetail> list = new Dao().getOrderDetailByIdo(id);
+		    req.setAttribute("listod", list);
+		RequestDispatcher dispath = req.getRequestDispatcher("admin/orderDetail.jsp");
 		dispath.forward(req, resp);
 	}}
-	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		delete(req, resp);
-	}
-	
-	private void delete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		  String idp = req.getParameter("idp");
-		  new Dao().deleteOrder(idp);
-		  resp.sendRedirect("orderAdmin");}
 }

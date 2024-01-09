@@ -8,7 +8,7 @@
 
                     <head>
                         <meta charset="UTF-8">
-                        <title>Insert title here</title>
+                        <title>Quản lý người dùng</title>
                         <link rel="Quản lý sản phẩm" href="admin/css/admin.css">
                     </head>
 
