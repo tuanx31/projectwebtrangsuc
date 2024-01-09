@@ -10,6 +10,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import model.Category;
 import model.Order;
+import model.OrderDetail;
 import model.Product;
 import model.account;
 
@@ -22,7 +23,7 @@ public class Dao {
   public List<Category> getAllCategory() {
     List<Category> listCategory = new ArrayList<>();
     String query = "SELECT * FROM `category`";
-    System.out.println(query);
+  //  System.out.println(query);
     try {
       conn = new dbConText().getConnection();
       ps = conn.prepareStatement(query);
@@ -128,7 +129,9 @@ public class Dao {
     }
   }
   
-  public void InsertOrderdathang(Order acc) {
+  public Integer InsertOrderdathang(Order acc) {
+	  Integer numero=0;
+	    Integer risultato=-1;
 	    String query =
 	      "INSERT INTO `order` ( `order_user`,`order_name`, `order_phone`, `order_email`, `order_total`, `order_address`, `order_note`) VALUES ( '" +
 	      acc.getUserId() +
@@ -151,13 +154,47 @@ public class Dao {
 	      PreparedStatement ps = conn.prepareStatement(query)
 	    ) {
 	      // Use executeUpdate for INSERT queries
-	      int rowsAffected = ps.executeUpdate();
-
-	      // Check the number of rows affected if needed
-	      System.out.println(rowsAffected + " row(s) affected");
+	    	numero = ps.executeUpdate(query, PreparedStatement.RETURN_GENERATED_KEYS);
+	    	ResultSet rs = ps.getGeneratedKeys();
+	    	 if (rs.next()){
+	             risultato=rs.getInt(1);
+	         }
+	      
+	      System.out.println(numero + " row(s) affected");
 	    } catch (Exception e) {
 	      System.out.println("Error executing query: " + e.getMessage());
 	    }
+	    return risultato;
+	  }
+  public void InsertOrderDetaildathang(OrderDetail acc) {
+	  
+	    String query =
+	      "INSERT INTO `order_detail` ( `order_id`,`prod_id`, `quantity`, `price`, `payment_name`, `payment_status`) VALUES ( '" +
+	      acc.getOrderId() +
+	      "', '" +
+	      acc.getIdp() +
+	      "','" +
+	      acc.getQuantity() +
+	      "','" +
+	      acc.getPrice() +
+	      "','" +
+	      acc.getPayment() +
+	      "','" +
+	      acc.getStatus() +
+	      "');";
+	    System.out.println(query);
+	    try (
+	      Connection conn = new dbConText().getConnection();
+	      PreparedStatement ps = conn.prepareStatement(query)
+	    ) {
+	      // Use executeUpdate for INSERT queries
+	    	int arow = ps.executeUpdate(query);
+	    
+	      System.out.println(arow + " row(s) affected");
+	    } catch (Exception e) {
+	      System.out.println("Error executing query: " + e.getMessage());
+	    }
+	   
 	  }
   public void InsertCategory(Category acc) {
 	    String query =

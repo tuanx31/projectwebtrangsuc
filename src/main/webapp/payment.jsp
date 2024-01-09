@@ -94,6 +94,8 @@
                                         thể khác đã được mô tả trong <a href="#" class="color-default">chính sách riêng
                                             tư</a> của chúng tôi.</p>
                                 </div>
+                                <h5 class="mt-4"> Quý Khách có thể để lại lời nhắn</h5>
+                                <textarea id="note" class="valid" name="note"></textarea>
                                 <div class="w-100 text-center">
                                     <button type="submit" name="btn-submit"
                                         class="btn btn-primary border-0 bg-default mb20" style="padding: 7px 150px">Đặt
@@ -129,7 +131,7 @@
                         </div>
                         <div class="price mt-3">
                             <p>Giá Tiền: <span><%=(int)cartItem.getPrice()%> VND</span></p>
-                            <p>Thành tiền: <span><%=(int)cartItem.getPrice()*cartItem.getAmount() %> VND</span></p>
+                            <p>Thành tiền: <span><%=(long)cartItem.getPrice()*cartItem.getAmount() %> VND</span></p>
                         </div>
                        <%}} %>
                        <p class="price">Tổng Tiền <SPAN><%=(long)totalAmount  %> VND</SPAN> </p>>

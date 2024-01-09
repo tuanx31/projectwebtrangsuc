@@ -7,10 +7,13 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.Cart;
 import model.Order;
+import model.OrderDetail;
 import model.account;
 
 import java.io.IOException;
+import java.util.List;
 
 import dao.Dao;
 
@@ -22,9 +25,16 @@ public class order extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		RequestDispatcher dispathcher = request.getRequestDispatcher("payment.jsp");
 		
-		dispathcher.forward(request, response);
+		HttpSession session = request.getSession();
+		List<Cart> cart = (List<Cart>) session.getAttribute("cart");
+		String username = (String)session.getAttribute("username");
+        if (cart != null && username != null) {
+			response.sendRedirect("payment.jsp");
+		}else {
+			RequestDispatcher dispath = request.getRequestDispatcher("index.jsp");
+			dispath.forward(request, response);
+		}
 	}
 
 	/**
@@ -44,16 +54,40 @@ public class order extends HttpServlet {
         String selectedDistrict = request.getParameter("district");
         String selectedWard = request.getParameter("ward");
         String house = request.getParameter("house");
+        String note = request.getParameter("note");
+        String Methods = request.getParameter("payment_method");
+        String method = "";
+        switch(Methods) {
+        case "COD":
+        	method = "Thanh Toán Khi Nhận Hàng";
+        	break;
+        case "Bank":
+        	method = "Chuyển Khoản";
+        	break;
+        }
+        
         
         long totalAmount = Long.parseLong(total);
         
 
         String address = house+","+selectedWard + "," + selectedDistrict +","+ selectedCity;
         
-        Order ord = new Order(1,idUser,name,phone,address,email,totalAmount,"");
+        Order ord = new Order(1,idUser,name,phone,address,email,totalAmount,note);
         Dao odao = new Dao();
-        odao.InsertOrderdathang(ord);
+        
+        int orderid = odao.InsertOrderdathang(ord);
 		
+        List<Cart> cartItems = (List<Cart>) session.getAttribute("cart");
+        for (Cart cartItem : cartItems) {
+        	int proid = cartItem.getId();
+        	int quantity = cartItem.getAmount();
+        	int price = (int) cartItem.getPrice();
+        	OrderDetail orderdetail = new OrderDetail(1,orderid,proid,quantity,price,method,"");
+        	odao.InsertOrderDetaildathang(orderdetail);
+    
+        	
+        }
+        session.removeAttribute("cart");
 	}
 	
 
