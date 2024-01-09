@@ -18,21 +18,27 @@
                         <form action="order" method="post" >
                             <div class="title-2">
                                 <h2>Thông tin người mua</h2>
-
+  <% 
+                    List<Cart> cartItems = (List<Cart>)session.getAttribute("cart");
+                double totalAmount = 0;
+                for (Cart cartItem : cartItems) {
+                        	double itemTotal = cartItem.getPrice() * cartItem.getAmount();
+                            totalAmount += itemTotal; }%>
                                 <div class="formw-inf">
                                     <div class="input-group flex-nowrap">
+                                    	<input type="hidden" name="total" value="<%=(int)totalAmount%>">
                                         <span class="input-group-text" id="addon-wrapping">Họ Tên</span>
-                                        <input type="text" class="form-control" placeholder="" aria-label="Username"
+                                        <input type="text" class="form-control" placeholder="" name="name" aria-label="Username"
                                             aria-describedby="addon-wrapping">
                                     </div>
                                     <div class="input-group flex-nowrap mt-3">
                                         <span class="input-group-text" id="addon-wrapping">Số Điện Thoại</span>
-                                        <input type="text" class="form-control" placeholder="" aria-label="Username"
+                                        <input type="text" class="form-control" placeholder="" aria-label="phone" name="phone"
                                             aria-describedby="addon-wrapping">
                                     </div>
                                     <div class="input-group flex-nowrap mt-3">
                                         <span class="input-group-text" id="addon-wrapping">Email</span>
-                                        <input type="text" class="form-control" placeholder="" aria-label="Username"
+                                        <input type="text" class="form-control" placeholder="" aria-label="email" name="email"
                                             aria-describedby="addon-wrapping">
                                     </div>
                                 </div>
@@ -41,26 +47,26 @@
 
                                 <div class="btn btn-danger w-100 mb-3">Nhận Hàng trực tiếp</div>
                                 <div class="row mb-3" style="margin-left:0">
-                                    <select class="form-select form-select-sm " id="city" aria-label=".form-select-sm"
-                                        style="width:33% !important">
+                                    <select class="form-select form-select-sm " id="city" name="city" aria-label=".form-select-sm"
+                                        style="width:33% !important" required>
                                         <option value="" selected>Chọn tỉnh thành</option>
                                     </select>
 
-                                    <select class="form-select form-select-sm  " id="district"
-                                        aria-label=".form-select-sm" style="width:33% !important">
+                                    <select class="form-select form-select-sm  " id="district" name="district"
+                                        aria-label=".form-select-sm" style="width:33% !important" required>
                                         <option value="" selected>Chọn quận huyện</option>
                                     </select>
 
-                                    <select class="form-select form-select-sm " id="ward" aria-label=".form-select-sm"
-                                        style="width:33% !important;">
+                                    <select class="form-select form-select-sm " id="ward" name="ward" aria-label=".form-select-sm"
+                                        style="width:33% !important;" required>
                                         <option value="" selected>Chọn phường xã</option>
                                     </select>
 
                                 </div>
                                 <div class="input-group flex-nowrap mt-3">
 
-                                    <input type="text" class="form-control" placeholder="Nhập Địa Chỉ"
-                                        aria-label="Address" aria-describedby="addon-wrapping">
+                                    <input type="text" class="form-control" placeholder="Nhập Địa Chỉ(số nhà , đường (xóm))"
+                                        aria-label="Address" name="house" aria-describedby="addon-wrapping" required>
                                 </div>
                                 <h2 class="mt-4">Chọn hình thức thanh toán</h2>
                                 <div class="form_payment" id="payment">
@@ -100,10 +106,9 @@
 
                     <div class="col-4">
                         <p>Thông tin Đơn Hàng</p>
-                        <% 
-                    List<Cart> cartItems = (List<Cart>)session.getAttribute("cart");
-                double totalAmount = 0;
-
+                      
+                <%
+               	totalAmount = 0;
                     if (cartItems != null && !cartItems.isEmpty()) {
                         for (Cart cartItem : cartItems) {
                         	double itemTotal = cartItem.getPrice() * cartItem.getAmount();
@@ -149,27 +154,27 @@
 
                 function renderCity(data) {
                     for (const x of data) {
-                        citis.options[citis.options.length] = new Option(x.Name, x.Id);
+                        citis.options[citis.options.length] = new Option(x.Name, x.Name);
                     }
                     citis.onchange = function () {
                         district.length = 1;
                         ward.length = 1;
                         if (this.value != "") {
-                            const result = data.filter(n => n.Id === this.value);
+                            const result = data.filter(n => n.Name === this.value);
 
                             for (const k of result[0].Districts) {
-                                district.options[district.options.length] = new Option(k.Name, k.Id);
+                                district.options[district.options.length] = new Option(k.Name, k.Name);
                             }
                         }
                     };
                     district.onchange = function () {
                         ward.length = 1;
-                        const dataCity = data.filter((n) => n.Id === citis.value);
+                        const dataCity = data.filter((n) => n.Name === citis.value);
                         if (this.value != "") {
-                            const dataWards = dataCity[0].Districts.filter(n => n.Id === this.value)[0].Wards;
+                            const dataWards = dataCity[0].Districts.filter(n => n.Name === this.value)[0].Wards;
 
                             for (const w of dataWards) {
-                                wards.options[wards.options.length] = new Option(w.Name, w.Id);
+                                wards.options[wards.options.length] = new Option(w.Name, w.Name);
                             }
                         }
                     };

@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import model.Category;
+import model.Order;
 import model.Product;
 import model.account;
 
@@ -126,6 +127,38 @@ public class Dao {
       System.out.println("Error executing query: " + e.getMessage());
     }
   }
+  
+  public void InsertOrderdathang(Order acc) {
+	    String query =
+	      "INSERT INTO `order` ( `order_user`,`order_name`, `order_phone`, `order_email`, `order_total`, `order_address`, `order_note`) VALUES ( '" +
+	      acc.getUserId() +
+	      "', '" +
+	      acc.getName() +
+	      "','" +
+	      acc.getPhone() +
+	      "','" +
+	      acc.getEmail() +
+	      "','" +
+	      acc.getTotal() +
+	      "','" +
+	      acc.getAddRess() +
+	      "','" +
+	      acc.getNote()+
+	      "');";
+	    System.out.println(query);
+	    try (
+	      Connection conn = new dbConText().getConnection();
+	      PreparedStatement ps = conn.prepareStatement(query)
+	    ) {
+	      // Use executeUpdate for INSERT queries
+	      int rowsAffected = ps.executeUpdate();
+
+	      // Check the number of rows affected if needed
+	      System.out.println(rowsAffected + " row(s) affected");
+	    } catch (Exception e) {
+	      System.out.println("Error executing query: " + e.getMessage());
+	    }
+	  }
   public void InsertCategory(Category acc) {
 	    String query =
 	      "INSERT INTO `category` (`name`, `desc`, `banner`) VALUES ( '" +

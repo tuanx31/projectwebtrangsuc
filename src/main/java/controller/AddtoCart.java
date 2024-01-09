@@ -20,11 +20,10 @@ import dao.Dao;
 @WebServlet(urlPatterns = "/AddtoCartC")
 public class AddtoCart extends HttpServlet {
 	
-
+	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-	       
+		response.sendRedirect("index.jsp");
 	}
 
 	
