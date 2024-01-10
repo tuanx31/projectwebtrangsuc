@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 09, 2024 at 08:38 AM
+-- Generation Time: Jan 10, 2024 at 02:47 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -61,14 +61,6 @@ CREATE TABLE `order` (
   `created_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `order`
---
-
-INSERT INTO `order` (`order_id`, `order_user`, `order_name`, `order_phone`, `order_email`, `order_total`, `order_address`, `order_note`, `created_time`) VALUES
-(6, 15, 'Nguyễn Đình Tuấn', '0824892083', 'nguyendinhtuanx31@gmail.com', 21075000, '1,Xã Cốc Pàng,Huyện Bảo Lạc,Tỉnh Cao Bằng', '1', '2024-01-09 05:17:55'),
-(7, 15, 'Nguyễn Đình Tuấn', '0824892083', 'nguyendinhtuanx31@gmail.com', 899451346, '2,Xã Xuân Lập,Huyện Lâm Bình,Tỉnh Tuyên Quang', '2', '2024-01-09 05:18:15');
-
 -- --------------------------------------------------------
 
 --
@@ -85,16 +77,6 @@ CREATE TABLE `order_detail` (
   `payment_status` varchar(255) NOT NULL,
   `create_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `order_detail`
---
-
-INSERT INTO `order_detail` (`order_detail_id`, `order_id`, `prod_id`, `quantity`, `price`, `payment_name`, `payment_status`, `create_time`) VALUES
-(9, 6, 39, 1, 13275000, 'Thanh Toán Khi Nhận Hàng', '', '2024-01-09 05:17:55'),
-(10, 6, 11, 1, 7800000, 'Thanh Toán Khi Nhận Hàng', '', '2024-01-09 05:17:55'),
-(11, 7, 8, 1, 895899346, 'Thanh Toán Khi Nhận Hàng', '', '2024-01-09 05:18:15'),
-(12, 7, 2, 1, 3552000, 'Thanh Toán Khi Nhận Hàng', '', '2024-01-09 05:18:15');
 
 -- --------------------------------------------------------
 
@@ -118,7 +100,7 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `name`, `desc`, `img`, `idCategory`, `price`, `sale_of`, `createAt`) VALUES
-(2, 'MẶT DÂY CHỮ VẠN FP60695', 'Loại sản phẩm:\r\nMặt dây\r\nChất liệu:\r\nVàng 24k\r\nTrọng lượng (chỉ):\r\n0.52 chỉ', 'https://trangsuc.doji.vn/Upload/product/mat-day/mat-day-chu-van-fp_60695-1.jpg', 2, '4440000', '20', '2024-01-07 13:54:49'),
+(2, 'MẶT DÂY CHỮ VẠN FP60695', 'Loại sản phẩm:Mặt dây ;Chất liệu:Vàng 24k ;Trọng lượng (chỉ):0.52 chỉ', 'https://trangsuc.doji.vn/Upload/product/mat-day/mat-day-chu-van-fp_60695-1.jpg', 2, '20000000', '20', '2024-01-07 13:54:49'),
 (8, 'NHẪN RUBY GJR469', 'Loại sản phẩm:NhẫnĐá chính:RubyĐá phụ:Đá swarovskiChất liệu:Vàng 14k', 'https://trangsuc.doji.vn/Upload/product/nhan-nu/nhan-nu-1214r3971ja0469.jpg', 3, '900000000', '10', '2024-01-07 13:54:49'),
 (11, 'NHẪN SAPPHIRE GJR668', 'Loại sản phẩm:\r\nNhẫn\r\nĐá chính:\r\nRuby\r\nĐá phụ:\r\nĐá swarovski\r\nChất liệu:\r\nVàng 14k', 'https://trangsuc.doji.vn/Upload/product/nhan-nu/nhan-nu-20-0517r1000na668.jpg', 3, '10000000', '22', '2024-01-07 13:54:49');
 INSERT INTO `product` (`id`, `name`, `desc`, `img`, `idCategory`, `price`, `sale_of`, `createAt`) VALUES
@@ -144,11 +126,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `role`, `time_created_at`) VALUES
-(1, 'admin', 'anhdepzai', '123456', 1, '2024-01-06 18:52:27'),
-(2, 'tuan', 'tuan', 'TUan3132004', 1, '2024-01-06 18:53:56'),
 (5, '1', '1', '1', 1, '2024-01-06 21:08:28'),
-(6, '0', '0', '0', 0, '2024-01-06 22:47:25'),
-(14, 'nguyen', 'tuan3132004', 'nguyendinhtuanx31@gmail.com', 0, '2024-01-09 09:58:41'),
 (15, '3', '3', '3', 0, '2024-01-09 11:47:51');
 
 --
@@ -203,25 +181,25 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `order_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `order_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables
